@@ -22,7 +22,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -37,11 +37,16 @@
           ink: '#14201D',
           inksoft: '#4B554F',
           amber: '#B8862E',
-          nearblack: '#0b0e0c'
+          nearblack: '#151412',
+          ember: '#D96A3E',
+          ash: '#C4B8A6',
+          rule: '#3A352E',
+          panel: '#201D19'
         },
         fontFamily: {
           sans: ['Montserrat', 'sans-serif'],
-          mono: ['"JetBrains Mono"', 'monospace']
+          mono: ['"JetBrains Mono"', 'monospace'],
+          display: ['Anton', 'sans-serif']
         }
       }
     }
@@ -172,95 +177,111 @@
 <header id="site-header" class="fixed top-0 inset-x-0 z-50">
   <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
     <a href="#hero" class="font-mono text-sand text-sm tracking-widest uppercase">
-      Backyard Ultra <span class="text-amber">&middot;</span> Team Namibia
+      Backyard Ultra <span class="text-ember">&middot;</span> Team Namibia
     </a>
     <nav class="hidden md:flex items-center gap-8 text-sand text-sm font-medium">
-      <a href="#format" class="hover:text-amber transition-colors">The Format</a>
-      <a href="#route" class="hover:text-amber transition-colors">The Route</a>
-      <a href="#team" class="hover:text-amber transition-colors">The Team</a>
-      <a href="#sponsors" class="hover:text-amber transition-colors">Sponsors</a>
-      <a href="https://gravel.trailrunna.com/backyard" class="bg-amber text-ink px-4 py-2 rounded-full font-semibold hover:bg-sand transition-colors">Full Index</a>
+      <a href="#format" class="hover:text-ember transition-colors">The Format</a>
+      <a href="#route" class="hover:text-ember transition-colors">The Route</a>
+      <a href="#team" class="hover:text-ember transition-colors">The Team</a>
+      <a href="#sponsors" class="hover:text-ember transition-colors">Sponsors</a>
+      <a href="https://gravel.trailrunna.com/backyard" class="bg-ember text-nearblack px-4 py-2 font-semibold hover:bg-sand transition-colors">Full Index</a>
     </nav>
     <button id="nav-toggle" class="md:hidden text-sand" aria-label="Toggle menu">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
   <div id="mobile-nav" class="hidden md:hidden bg-ink/95 px-6 py-4 flex flex-col gap-4 text-sand text-sm font-medium">
-    <a href="#format" class="hover:text-amber">The Format</a>
-    <a href="#route" class="hover:text-amber">The Route</a>
-    <a href="#team" class="hover:text-amber">The Team</a>
-    <a href="#sponsors" class="hover:text-amber">Sponsors</a>
-    <a href="https://gravel.trailrunna.com/backyard" class="text-amber">Full Index &rarr;</a>
+    <a href="#format" class="hover:text-ember">The Format</a>
+    <a href="#route" class="hover:text-ember">The Route</a>
+    <a href="#team" class="hover:text-ember">The Team</a>
+    <a href="#sponsors" class="hover:text-ember">Sponsors</a>
+    <a href="https://gravel.trailrunna.com/backyard" class="text-ember">Full Index &rarr;</a>
   </div>
 </header>
 
 <!-- ================= HERO ================= -->
-<section id="hero" class="relative h-screen min-h-[640px] w-full overflow-hidden bg-nearblack">
+<section id="hero" class="relative w-full overflow-hidden bg-nearblack pt-20">
+  <div class="mx-auto flex min-h-[calc(100vh-5rem)] max-w-[1540px] flex-col border-x border-rule/60 lg:flex-row">
 
-  <!-- REPLACE-VIDEO: add your own loop of race or training footage. 15-30s,
-       1080p, compressed to well under 10MB, is plenty for a background loop.
-       If this fails to load, the animated fallback below is shown instead. -->
-  <video id="hero-video" autoplay muted loop playsinline
-    poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%230b0e0c'/%3E%3Ccircle cx='1250' cy='220' r='90' fill='%23B8862E' opacity='0.7'/%3E%3Cpath d='M0 650 C 300 560, 550 700, 850 600 S 1300 520, 1600 610 L1600 900 L0 900 Z' fill='%23004741'/%3E%3C/svg%3E">
-    <source src="assets/hero-loop.mp4" type="video/mp4">
-  </video>
+    <!-- left: content panel, 54% on desktop -->
+    <div class="relative z-10 flex w-full flex-col justify-center px-6 sm:px-10 lg:w-[54%] lg:px-[6vw] py-16 lg:py-12">
 
-  <div id="hero-fallback" class="hidden" aria-hidden="true">
-    <div class="drift-blob" style="width:420px;height:420px;background:#004741;top:10%;left:10%;"></div>
-    <div class="drift-blob" style="width:320px;height:320px;background:#B8862E;top:50%;right:8%;animation-delay:-7s;"></div>
-    <div class="drift-blob" style="width:260px;height:260px;background:#0f3a34;bottom:5%;left:35%;animation-delay:-14s;"></div>
-    <svg class="contour-ring absolute" style="width:900px;height:900px;top:-20%;left:-10%;opacity:0.12;" viewBox="0 0 400 400">
-      <circle cx="200" cy="200" r="80" fill="none" stroke="#F0EDE4" stroke-width="1.5"/>
-      <circle cx="200" cy="200" r="130" fill="none" stroke="#F0EDE4" stroke-width="1.5"/>
-      <circle cx="200" cy="200" r="180" fill="none" stroke="#F0EDE4" stroke-width="1.5"/>
-    </svg>
-  </div>
-
-  <div class="absolute inset-0 bg-gradient-to-t from-nearblack via-nearblack/60 to-nearblack/30"></div>
-  <div class="grain-overlay on-dark" aria-hidden="true"></div>
-
-  <div class="relative z-10 h-full max-w-5xl mx-auto px-6 flex flex-col justify-center">
-    <p class="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-sand/70 mb-5 reveal">
-      Backyard Ultra &mdash; World Team Championship
-    </p>
-    <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-sand leading-[1.05] tracking-tight mb-6 reveal">
-      One loop. Every hour.<br>Until one team is left.
-    </h1>
-    <p class="text-base md:text-lg text-sand/80 max-w-xl mb-10 leading-relaxed reveal">
-      Namibia is fielding a national team at the format's biennial global event,
-      where national squads run the same 6.706&nbsp;km loop, together, once per
-      hour, worldwide and simultaneously, until only one runner anywhere is
-      still moving.
-    </p>
-    <div class="flex flex-wrap gap-x-10 gap-y-4 border-t border-sand/20 pt-6 reveal">
-      <div>
-        <p class="font-mono text-[11px] uppercase tracking-wider text-sand/50 mb-1">Date</p>
-        <p class="text-sand font-semibold text-sm">17 October 2026</p>
+      <div class="flex items-center gap-3 mb-6 reveal">
+        <span class="w-8 h-px bg-ember"></span>
+        <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-ember">World Team Championship &middot; 17 October 2026</p>
       </div>
-      <div>
-        <p class="font-mono text-[11px] uppercase tracking-wider text-sand/50 mb-1">Event village</p>
-        <p class="text-sand font-semibold text-sm">Eagles Beergarden, Avis</p>
+
+      <h1 class="max-w-[820px] font-display uppercase text-sand reveal" style="font-size:clamp(4.1rem,9vw,8.6rem); line-height:.87; letter-spacing:-0.035em;">
+        <span class="block">One loop.</span>
+        <span class="block text-ember">Every hour.</span>
+        <span class="block">Together.</span>
+      </h1>
+
+      <p class="mt-8 max-w-[445px] text-[15px] leading-7 text-ash reveal">
+        Namibia is fielding a national team at the format's biennial global event:
+        the same 6.706&nbsp;km loop, run together, once every hour, until only one
+        runner anywhere is still moving.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-4 mt-9 mb-12 reveal">
+        <a href="#team" class="inline-flex items-center justify-center gap-2 min-h-10 px-8 bg-ember text-nearblack text-sm font-medium hover:bg-sand transition-colors">
+          Meet the team
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+        <a href="#format" class="group inline-flex items-center gap-2 min-h-9 px-4 py-2 text-sand text-sm font-medium hover:text-ember transition-colors">
+          <span class="w-7 h-7 rounded-full border border-sand/40 flex items-center justify-center group-hover:border-ember">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20"/></svg>
+          </span>
+          The format
+        </a>
       </div>
-      <div>
-        <p class="font-mono text-[11px] uppercase tracking-wider text-sand/50 mb-1">Loop</p>
-        <p class="text-sand font-semibold text-sm">6.706&nbsp;km, hourly</p>
+
+      <div class="flex flex-wrap gap-x-8 gap-y-6 border-t border-rule pt-8 reveal">
+        <div>
+          <p class="font-display text-3xl text-sand">6.706</p>
+          <p class="text-[9px] uppercase tracking-[.16em] text-ash mt-1">Km per loop</p>
+        </div>
+        <div>
+          <p class="font-display text-3xl text-sand">On the hour</p>
+          <p class="text-[9px] uppercase tracking-[.16em] text-ash mt-1">Cutoff, every lap</p>
+        </div>
+        <div>
+          <p class="font-display text-3xl text-sand">12</p>
+          <p class="text-[9px] uppercase tracking-[.16em] text-ash mt-1">Team athletes</p>
+        </div>
       </div>
-      <div>
-        <p class="font-mono text-[11px] uppercase tracking-wider text-sand/50 mb-1">Field</p>
-        <p class="text-sand font-semibold text-sm">National teams, worldwide</p>
+    </div>
+
+    <!-- right: photo panel, flex-1 (the remaining ~46%) -->
+    <div class="relative min-h-[420px] flex-1 overflow-hidden">
+      <!-- REPLACE-IMAGE: swap this src for a real photo. A tall, dramatic
+           training or race shot works best here. -->
+      <img class="absolute inset-0 h-full w-full object-cover object-center grayscale-[.15] contrast-[1.08]"
+        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1200'%3E%3Crect width='900' height='1200' fill='%23151412'/%3E%3Ccircle cx='700' cy='260' r='220' fill='%23D96A3E' opacity='0.35'/%3E%3Cpath d='M0 820 C 200 760, 420 900, 620 820 S 860 740, 900 800 L900 1200 L0 1200 Z' fill='%2314201D'/%3E%3C/svg%3E"
+        alt="REPLACE-IMAGE: team runner, to be swapped for a real photo">
+
+      <div class="absolute inset-0 bg-gradient-to-r from-nearblack via-nearblack/30 lg:via-nearblack/5 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-nearblack/90 via-transparent to-nearblack/10"></div>
+
+      <div class="absolute right-6 top-7 z-10 hidden items-center gap-2 text-[10px] uppercase tracking-[.2em] text-sand/75 sm:flex">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 1 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Namibia &middot; 22&deg;S 17&deg;E
+      </div>
+
+      <div class="absolute bottom-14 left-6 right-6 z-10 flex items-end justify-between sm:bottom-16 sm:left-10 sm:right-10">
+        <div>
+          <div class="mb-2 text-[10px] uppercase tracking-[.2em] text-ember">The rule is simple</div>
+          <p class="max-w-[230px] font-display text-2xl uppercase leading-none text-sand">Be back at the line<br>before the hour.</p>
+        </div>
+        <a href="#team" class="hidden border-b border-sand/50 pb-2 text-[10px] uppercase tracking-[.16em] text-sand sm:flex items-center gap-1 hover:border-ember hover:text-ember transition-colors">
+          View roster
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
       </div>
     </div>
   </div>
 
-  <a href="#format" class="scroll-cue absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-sand/70 hover:text-amber">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/></svg>
-  </a>
-
-  <div class="torn-divider absolute bottom-0 left-0 right-0 z-10 translate-y-px">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path fill="#F0EDE4" d="M0.0,31.6 Q0.0,31.6 45.0,37.2 Q90.0,42.8 135.0,37.3 Q180.0,31.7 225.0,39.2 Q270.0,46.7 315.0,47.3 Q360.0,48.0 405.0,30.1 Q450.0,12.2 495.0,10.5 Q540.0,8.8 585.0,35.2 Q630.0,61.6 675.0,43.1 Q720.0,24.6 765.0,23.8 Q810.0,23.0 855.0,47.4 Q900.0,71.7 945.0,54.9 Q990.0,38.1 1035.0,49.8 Q1080.0,61.5 1125.0,50.0 Q1170.0,38.5 1215.0,43.7 Q1260.0,48.9 1305.0,33.3 Q1350.0,17.6 1395.0,33.1 L1440.0,80.0 L0,80.0 Z"/>
-    </svg>
-  </div>
+  <div class="grain-overlay on-dark" aria-hidden="true"></div>
 </section>
 
 <!-- ================= FORMAT ================= -->
@@ -359,85 +380,88 @@
 </section>
 
 <!-- ================= TEAM ================= -->
-<section id="team" class="relative bg-sand py-24 md:py-32">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-4 reveal">The Namibia team</h2>
-    <p class="text-inksoft max-w-lg mb-12 reveal">The twelve ranked athletes selected to represent Namibia, ordered by national ranking.</p>
+<section id="team" class="relative bg-nearblack py-24 md:py-32">
+  <div class="grain-overlay on-dark" aria-hidden="true"></div>
+  <div class="max-w-6xl mx-auto px-6 relative">
 
-    <div class="border border-ink/10 rounded overflow-hidden mb-24 reveal">
-      <div class="grid grid-cols-[64px_1fr_100px] bg-sanddeep font-mono text-[11px] uppercase tracking-wider text-inksoft px-6 py-3">
+    <div class="flex items-center gap-3 mb-6 reveal">
+      <span class="w-8 h-px bg-ember"></span>
+      <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-ember">The roster</p>
+    </div>
+    <h2 class="font-display uppercase text-sand text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-5 reveal">Twelve for<br>Namibia.</h2>
+    <p class="max-w-lg text-[15px] leading-7 text-ash mb-14 reveal">The twelve ranked athletes selected to represent Namibia, ordered by national ranking, by their best recorded yards.</p>
+
+    <div class="border border-rule mb-24 reveal">
+      <div class="grid grid-cols-[64px_1fr_100px] bg-panel text-[10px] uppercase tracking-[.16em] text-ash px-6 py-3">
         <span>Rank</span><span>Runner</span><span class="text-right">Best yards</span>
       </div>
-      <div class="divide-y divide-ink/10">
-        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-3"><span class="font-mono font-bold text-cyprus text-sm">1</span><span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-cyprus text-sand font-mono text-xs flex items-center justify-center">EG</span><span class="font-semibold text-sm">Erich Goeieman</span></span><span class="text-right font-mono text-sm text-inksoft">25</span></div>
-        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-3"><span class="font-mono font-bold text-cyprus text-sm">2</span><span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-cyprus text-sand font-mono text-xs flex items-center justify-center">MK</span><span class="font-semibold text-sm">Martin Kalwenya</span></span><span class="text-right font-mono text-sm text-inksoft">24</span></div>
-        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-3"><span class="font-mono font-bold text-cyprus text-sm">3</span><span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-cyprus text-sand font-mono text-xs flex items-center justify-center">DA</span><span class="font-semibold text-sm">Donatus Aihuki</span></span><span class="text-right font-mono text-sm text-inksoft">21</span></div>
-        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-3"><span class="font-mono font-bold text-cyprus text-sm">4</span><span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-cyprus text-sand font-mono text-xs flex items-center justify-center">BG</span><span class="font-semibold text-sm">Buks Gous</span></span><span class="text-right font-mono text-sm text-inksoft">20</span></div>
-        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-3"><span class="font-mono font-bold text-cyprus text-sm">5</span><span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-cyprus text-sand font-mono text-xs flex items-center justify-center">DZ</span><span class="font-semibold text-sm">Danielle Zimny</span></span><span class="text-right font-mono text-sm text-inksoft">18</span></div>
-        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-3"><span class="font-mono font-bold text-cyprus text-sm">6</span><span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-cyprus text-sand font-mono text-xs flex items-center justify-center">ND</span><span class="font-semibold text-sm">Naude Dreyer</span></span><span class="text-right font-mono text-sm text-inksoft">17</span></div>
-        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-3"><span class="font-mono font-bold text-cyprus text-sm">6</span><span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-cyprus text-sand font-mono text-xs flex items-center justify-center">RR</span><span class="font-semibold text-sm">Richard Reid</span></span><span class="text-right font-mono text-sm text-inksoft">17</span></div>
-        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-3"><span class="font-mono font-bold text-cyprus text-sm">6</span><span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-cyprus text-sand font-mono text-xs flex items-center justify-center">TV</span><span class="font-semibold text-sm">Tobias Verwey</span></span><span class="text-right font-mono text-sm text-inksoft">17</span></div>
-        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-3"><span class="font-mono font-bold text-cyprus text-sm">9</span><span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-cyprus text-sand font-mono text-xs flex items-center justify-center">KB</span><span class="font-semibold text-sm">Karl Birkenstock</span></span><span class="text-right font-mono text-sm text-inksoft">16</span></div>
-        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-3"><span class="font-mono font-bold text-cyprus text-sm">10</span><span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-cyprus text-sand font-mono text-xs flex items-center justify-center">MS</span><span class="font-semibold text-sm">Marietjie Steinbach</span></span><span class="text-right font-mono text-sm text-inksoft">15</span></div>
-        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-3"><span class="font-mono font-bold text-cyprus text-sm">10</span><span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-cyprus text-sand font-mono text-xs flex items-center justify-center">JD</span><span class="font-semibold text-sm">Jana van Dyk</span></span><span class="text-right font-mono text-sm text-inksoft">15</span></div>
-        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-3"><span class="font-mono font-bold text-cyprus text-sm">10</span><span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-cyprus text-sand font-mono text-xs flex items-center justify-center">DO</span><span class="font-semibold text-sm">Danie Opperman</span></span><span class="text-right font-mono text-sm text-inksoft">15</span></div>
+      <div class="divide-y divide-rule">
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">1</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-ember text-nearblack font-mono text-xs font-bold flex items-center justify-center">EG</span><span class="font-medium text-sand text-sm">Erich Goeieman</span></span><span class="text-right font-mono text-sm text-ash">25</span></div>
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">2</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-rule text-sand font-mono text-xs font-bold flex items-center justify-center">MK</span><span class="font-medium text-sand text-sm">Martin Kalwenya</span></span><span class="text-right font-mono text-sm text-ash">24</span></div>
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">3</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-rule text-sand font-mono text-xs font-bold flex items-center justify-center">DA</span><span class="font-medium text-sand text-sm">Donatus Aihuki</span></span><span class="text-right font-mono text-sm text-ash">21</span></div>
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">4</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-rule text-sand font-mono text-xs font-bold flex items-center justify-center">BG</span><span class="font-medium text-sand text-sm">Buks Gous</span></span><span class="text-right font-mono text-sm text-ash">20</span></div>
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">5</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-rule text-sand font-mono text-xs font-bold flex items-center justify-center">DZ</span><span class="font-medium text-sand text-sm">Danielle Zimny</span></span><span class="text-right font-mono text-sm text-ash">18</span></div>
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">6</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-rule text-sand font-mono text-xs font-bold flex items-center justify-center">ND</span><span class="font-medium text-sand text-sm">Naude Dreyer</span></span><span class="text-right font-mono text-sm text-ash">17</span></div>
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">6</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-rule text-sand font-mono text-xs font-bold flex items-center justify-center">RR</span><span class="font-medium text-sand text-sm">Richard Reid</span></span><span class="text-right font-mono text-sm text-ash">17</span></div>
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">6</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-rule text-sand font-mono text-xs font-bold flex items-center justify-center">TV</span><span class="font-medium text-sand text-sm">Tobias Verwey</span></span><span class="text-right font-mono text-sm text-ash">17</span></div>
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">9</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-rule text-sand font-mono text-xs font-bold flex items-center justify-center">KB</span><span class="font-medium text-sand text-sm">Karl Birkenstock</span></span><span class="text-right font-mono text-sm text-ash">16</span></div>
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">10</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-rule text-sand font-mono text-xs font-bold flex items-center justify-center">MS</span><span class="font-medium text-sand text-sm">Marietjie Steinbach</span></span><span class="text-right font-mono text-sm text-ash">15</span></div>
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">10</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-rule text-sand font-mono text-xs font-bold flex items-center justify-center">JD</span><span class="font-medium text-sand text-sm">Jana van Dyk</span></span><span class="text-right font-mono text-sm text-ash">15</span></div>
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">10</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-rule text-sand font-mono text-xs font-bold flex items-center justify-center">DO</span><span class="font-medium text-sand text-sm">Danie Opperman</span></span><span class="text-right font-mono text-sm text-ash">15</span></div>
       </div>
     </div>
 
-    <h3 class="text-xl font-bold tracking-tight mb-2 reveal">In training</h3>
-    <p class="text-inksoft text-sm mb-10 reveal">Click a photo to enlarge.</p>
-    <div id="gallery" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
+    <h3 class="font-display uppercase text-sand text-2xl tracking-tight mb-2 reveal">In training</h3>
+    <p class="text-ash text-sm mb-10 reveal">Click a photo to enlarge.</p>
+    <div id="gallery" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- REPLACE-IMAGE x6: swap each src for a real training or race photo -->
-      <figure class="relative reveal">
-        <div class="brush-2 aspect-[4/5]">
+      <figure class="reveal">
+        <div class="aspect-[4/5] border border-rule bg-panel overflow-hidden">
           <img class="gallery-img w-full h-full object-cover cursor-zoom-in" loading="lazy"
-            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23004741'/%3E%3Ccircle cx='200' cy='190' r='48' fill='%23F0EDE4' opacity='0.9'/%3E%3Cpath d='M200 244 L200 350 M200 350 L150 440 M200 350 L250 435 M200 260 L145 320 M200 260 L262 315' stroke='%23F0EDE4' stroke-width='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23201D19'/%3E%3Ccircle cx='200' cy='190' r='48' fill='%23D96A3E' opacity='0.9'/%3E%3Cpath d='M200 244 L200 350 M200 350 L150 440 M200 350 L250 435 M200 260 L145 320 M200 260 L262 315' stroke='%23D96A3E' stroke-width='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E"
             alt="Runner in training, placeholder">
         </div>
-        <div class="splat" style="--splat-color:#B8862E; width:40px; height:40px; top:-10px; right:10%;"></div>
-        <figcaption class="mt-4 text-sm text-inksoft">Add caption: runner name and location</figcaption>
+        <figcaption class="mt-3 text-[11px] uppercase tracking-wider text-ash">Add caption: runner name and location</figcaption>
       </figure>
-      <figure class="relative reveal">
-        <div class="brush-3 aspect-[4/5]">
+      <figure class="reveal">
+        <div class="aspect-[4/5] border border-rule bg-panel overflow-hidden">
           <img class="gallery-img w-full h-full object-cover cursor-zoom-in" loading="lazy"
-            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23063f39'/%3E%3Ccircle cx='200' cy='190' r='48' fill='%23F0EDE4' opacity='0.9'/%3E%3Cpath d='M200 244 L200 350 M200 350 L150 440 M200 350 L250 435 M200 260 L145 320 M200 260 L262 315' stroke='%23F0EDE4' stroke-width='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23151412'/%3E%3Ccircle cx='200' cy='190' r='48' fill='%23F0EDE4' opacity='0.85'/%3E%3Cpath d='M200 244 L200 350 M200 350 L150 440 M200 350 L250 435 M200 260 L145 320 M200 260 L262 315' stroke='%23F0EDE4' stroke-width='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E"
             alt="Runner in training, placeholder">
         </div>
-        <figcaption class="mt-4 text-sm text-inksoft">Add caption: runner name and location</figcaption>
+        <figcaption class="mt-3 text-[11px] uppercase tracking-wider text-ash">Add caption: runner name and location</figcaption>
       </figure>
-      <figure class="relative reveal">
-        <div class="brush-1 aspect-[4/5]">
+      <figure class="reveal">
+        <div class="aspect-[4/5] border border-rule bg-panel overflow-hidden">
           <img class="gallery-img w-full h-full object-cover cursor-zoom-in" loading="lazy"
-            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23B8862E'/%3E%3Ccircle cx='200' cy='190' r='48' fill='%23F0EDE4' opacity='0.9'/%3E%3Cpath d='M200 244 L200 350 M200 350 L150 440 M200 350 L250 435 M200 260 L145 320 M200 260 L262 315' stroke='%23F0EDE4' stroke-width='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23201D19'/%3E%3Ccircle cx='200' cy='190' r='48' fill='%23F0EDE4' opacity='0.85'/%3E%3Cpath d='M200 244 L200 350 M200 350 L150 440 M200 350 L250 435 M200 260 L145 320 M200 260 L262 315' stroke='%23F0EDE4' stroke-width='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E"
             alt="Runner in training, placeholder">
         </div>
-        <div class="splat" style="--splat-color:#14201D; width:26px; height:26px; bottom:-6px; left:14%;"></div>
-        <figcaption class="mt-4 text-sm text-inksoft">Add caption: runner name and location</figcaption>
+        <figcaption class="mt-3 text-[11px] uppercase tracking-wider text-ash">Add caption: runner name and location</figcaption>
       </figure>
-      <figure class="relative reveal">
-        <div class="brush-2 aspect-[4/5]">
+      <figure class="reveal">
+        <div class="aspect-[4/5] border border-rule bg-panel overflow-hidden">
           <img class="gallery-img w-full h-full object-cover cursor-zoom-in" loading="lazy"
-            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%2314201D'/%3E%3Ccircle cx='200' cy='190' r='48' fill='%23B8862E' opacity='0.9'/%3E%3Cpath d='M200 244 L200 350 M200 350 L150 440 M200 350 L250 435 M200 260 L145 320 M200 260 L262 315' stroke='%23B8862E' stroke-width='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23151412'/%3E%3Ccircle cx='200' cy='190' r='48' fill='%23D96A3E' opacity='0.9'/%3E%3Cpath d='M200 244 L200 350 M200 350 L150 440 M200 350 L250 435 M200 260 L145 320 M200 260 L262 315' stroke='%23D96A3E' stroke-width='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E"
             alt="Runner in training, placeholder">
         </div>
-        <figcaption class="mt-4 text-sm text-inksoft">Add caption: runner name and location</figcaption>
+        <figcaption class="mt-3 text-[11px] uppercase tracking-wider text-ash">Add caption: runner name and location</figcaption>
       </figure>
-      <figure class="relative reveal">
-        <div class="brush-3 aspect-[4/5]">
+      <figure class="reveal">
+        <div class="aspect-[4/5] border border-rule bg-panel overflow-hidden">
           <img class="gallery-img w-full h-full object-cover cursor-zoom-in" loading="lazy"
-            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23004741'/%3E%3Ccircle cx='200' cy='190' r='48' fill='%23B8862E' opacity='0.9'/%3E%3Cpath d='M200 244 L200 350 M200 350 L150 440 M200 350 L250 435 M200 260 L145 320 M200 260 L262 315' stroke='%23B8862E' stroke-width='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23201D19'/%3E%3Ccircle cx='200' cy='190' r='48' fill='%23D96A3E' opacity='0.9'/%3E%3Cpath d='M200 244 L200 350 M200 350 L150 440 M200 350 L250 435 M200 260 L145 320 M200 260 L262 315' stroke='%23D96A3E' stroke-width='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E"
             alt="Runner in training, placeholder">
         </div>
-        <div class="splat" style="--splat-color:#B8862E; width:34px; height:34px; top:20%; right:-12px;"></div>
-        <figcaption class="mt-4 text-sm text-inksoft">Add caption: runner name and location</figcaption>
+        <figcaption class="mt-3 text-[11px] uppercase tracking-wider text-ash">Add caption: runner name and location</figcaption>
       </figure>
-      <figure class="relative reveal">
-        <div class="brush-1 aspect-[4/5]">
+      <figure class="reveal">
+        <div class="aspect-[4/5] border border-rule bg-panel overflow-hidden">
           <img class="gallery-img w-full h-full object-cover cursor-zoom-in" loading="lazy"
-            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23063f39'/%3E%3Ccircle cx='200' cy='190' r='48' fill='%23F0EDE4' opacity='0.9'/%3E%3Cpath d='M200 244 L200 350 M200 350 L150 440 M200 350 L250 435 M200 260 L145 320 M200 260 L262 315' stroke='%23F0EDE4' stroke-width='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23151412'/%3E%3Ccircle cx='200' cy='190' r='48' fill='%23F0EDE4' opacity='0.85'/%3E%3Cpath d='M200 244 L200 350 M200 350 L150 440 M200 350 L250 435 M200 260 L145 320 M200 260 L262 315' stroke='%23F0EDE4' stroke-width='20' stroke-linecap='round' fill='none'/%3E%3C/svg%3E"
             alt="Runner in training, placeholder">
         </div>
-        <figcaption class="mt-4 text-sm text-inksoft">Add caption: runner name and location</figcaption>
+        <figcaption class="mt-3 text-[11px] uppercase tracking-wider text-ash">Add caption: runner name and location</figcaption>
       </figure>
     </div>
   </div>
@@ -513,20 +537,6 @@
   mobileNav.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', function () { mobileNav.classList.add('hidden'); });
   });
-
-  // Hero video / fallback: if the video has no playable source, show the
-  // CSS motion fallback instead so the hero still feels alive.
-  var video = document.getElementById('hero-video');
-  var fallback = document.getElementById('hero-fallback');
-  function showFallback() {
-    video.style.display = 'none';
-    fallback.classList.remove('hidden');
-  }
-  video.addEventListener('error', showFallback);
-  video.querySelector('source').addEventListener('error', showFallback);
-  setTimeout(function () {
-    if (video.readyState === 0) showFallback();
-  }, 1800);
 
   // Scroll reveal
   var revealEls = document.querySelectorAll('.reveal');
