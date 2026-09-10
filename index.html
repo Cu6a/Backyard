@@ -30,13 +30,7 @@
     theme: {
       extend: {
         colors: {
-          cyprus: '#004741',
-          cyprusdeep: '#003530',
           sand: '#F0EDE4',
-          sanddeep: '#E4E0D3',
-          ink: '#14201D',
-          inksoft: '#4B554F',
-          amber: '#B8862E',
           nearblack: '#151412',
           ember: '#D96A3E',
           ash: '#C4B8A6',
@@ -55,77 +49,7 @@
 
 <style>
   html { scroll-behavior: smooth; }
-  body { background: #F0EDE4; }
-
-  /* ---------- Grain / grit texture, laid over the whole page ---------- */
-  .grain-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 999;
-    pointer-events: none;
-    opacity: 0.05;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/png;base64,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");
-    background-size: 160px 160px;
-  }
-  .grain-overlay.on-dark { mix-blend-mode: overlay; opacity: 0.09; }
-
-  /* ---------- Brush / torn-edge masks (hand authored irregular blobs, ---------- */
-  /* not a rectangle: this is what gives photos the brushed, non-clean edge) */
-  .brush-1, .brush-2, .brush-3 {
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-    -webkit-mask-position: center;
-    mask-position: center;
-  }
-  .brush-1 { -webkit-mask-image: url(#brush1); mask-image: url(#brush1); }
-  .brush-2 { -webkit-mask-image: url(#brush2); mask-image: url(#brush2); }
-  .brush-3 { -webkit-mask-image: url(#brush3); mask-image: url(#brush3); }
-
-  .torn-card-a, .torn-card-b {
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-  }
-  .torn-card-a { -webkit-mask-image: url(#cardTorn1); mask-image: url(#cardTorn1); }
-  .torn-card-b { -webkit-mask-image: url(#cardTorn2); mask-image: url(#cardTorn2); }
-
-  /* Small ink-splatter accents scattered near brush-framed photos */
-  .splat {
-    position: absolute;
-    border-radius: 62% 38% 55% 45% / 45% 55% 40% 60%;
-    background: var(--splat-color, #14201D);
-    opacity: 0.85;
-    pointer-events: none;
-  }
-
-  /* ---------- Torn paper section dividers ---------- */
-  .torn-divider { display: block; width: 100%; height: 70px; }
-  .torn-divider svg { display: block; width: 100%; height: 100%; }
-
-  /* ---------- Hero video + motion fallback ---------- */
-  #hero-video, #hero-fallback { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  #hero-fallback { background: radial-gradient(circle at 30% 20%, #0f3a34 0%, #0b0e0c 65%); }
-  .drift-blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.5;
-    animation: drift 22s ease-in-out infinite;
-  }
-  @keyframes drift {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(40px, -30px) scale(1.12); }
-    66% { transform: translate(-30px, 25px) scale(0.94); }
-  }
-  .contour-ring { animation: slowspin 90s linear infinite; transform-origin: center; }
-  @keyframes slowspin { to { transform: rotate(360deg); } }
-
-  .scroll-cue { animation: bob 2s ease-in-out infinite; }
-  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+  body { background: #151412; }
 
   /* ---------- Scroll reveal ---------- */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -133,7 +57,7 @@
 
   /* ---------- Header ---------- */
   #site-header { transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease; }
-  #site-header.scrolled { background-color: rgba(20, 32, 29, 0.92); box-shadow: 0 6px 24px rgba(0,0,0,0.25); }
+  #site-header.scrolled { background-color: rgba(21, 20, 18, 0.92); box-shadow: 0 6px 24px rgba(0,0,0,0.25); }
 
   /* ---------- Sponsor hover ---------- */
   .sponsor-tile { filter: grayscale(1); opacity: 0.65; transition: filter 0.25s ease, opacity 0.25s ease; }
@@ -148,30 +72,7 @@
 </style>
 </head>
 
-<body class="bg-sand text-ink font-sans antialiased overflow-x-hidden">
-
-<div class="grain-overlay" aria-hidden="true"></div>
-
-<!-- ================= SVG DEFS: brush masks, torn-card masks, dividers ================= -->
-<svg width="0" height="0" style="position:absolute">
-  <defs>
-    <mask id="brush1" maskContentUnits="objectBoundingBox">
-      <path fill="#fff" d="M1.0040,0.5000 Q1.0040,0.5000 0.9719,0.5475 Q0.9398,0.5950 0.9272,0.6428 Q0.9146,0.6907 0.8536,0.7089 Q0.7926,0.7271 0.7752,0.7772 Q0.7577,0.8272 0.6994,0.8266 Q0.6411,0.8260 0.5889,0.7954 Q0.5367,0.7647 0.4965,0.7898 Q0.4563,0.8150 0.4088,0.8177 Q0.3613,0.8204 0.2875,0.8419 Q0.2137,0.8634 0.1738,0.8238 Q0.1339,0.7842 0.1341,0.7262 Q0.1344,0.6681 0.1300,0.6245 Q0.1255,0.5809 0.0961,0.5404 Q0.0668,0.5000 0.1028,0.4610 Q0.1389,0.4220 0.1516,0.3838 Q0.1642,0.3456 0.1781,0.3033 Q0.1920,0.2610 0.2090,0.2066 Q0.2260,0.1522 0.2737,0.1197 Q0.3213,0.0871 0.3802,0.0743 Q0.4392,0.0616 0.5000,0.0616 Q0.5608,0.0616 0.5901,0.1429 Q0.6194,0.2241 0.6695,0.2227 Q0.7196,0.2213 0.7429,0.2573 Q0.7663,0.2933 0.8098,0.3154 Q0.8534,0.3375 0.8769,0.3756 Z"/>
-    </mask>
-    <mask id="brush2" maskContentUnits="objectBoundingBox">
-      <path fill="#fff" d="M0.8913,0.5000 Q0.8913,0.5000 0.8891,0.5418 Q0.8870,0.5836 0.9029,0.6381 Q0.9188,0.6926 0.8734,0.7236 Q0.8281,0.7546 0.8057,0.8072 Q0.7834,0.8598 0.7222,0.8658 Q0.6609,0.8717 0.6090,0.8919 Q0.5571,0.9120 0.5020,0.8976 Q0.4469,0.8831 0.4003,0.8605 Q0.3538,0.8379 0.3238,0.7998 Q0.2939,0.7617 0.2859,0.7170 Q0.2779,0.6724 0.2181,0.6647 Q0.1583,0.6571 0.1169,0.6244 Q0.0755,0.5917 0.0434,0.5458 Q0.0113,0.5000 0.0109,0.4471 Q0.0106,0.3943 0.0664,0.3603 Q0.1222,0.3263 0.1522,0.2898 Q0.1822,0.2533 0.2100,0.2102 Q0.2378,0.1672 0.2992,0.1725 Q0.3606,0.1779 0.4113,0.2021 Q0.4621,0.2264 0.5060,0.1829 Q0.5500,0.1393 0.6095,0.1244 Q0.6690,0.1095 0.7277,0.1230 Q0.7863,0.1366 0.8317,0.1719 Q0.8772,0.2072 0.9118,0.2510 Q0.9463,0.2948 0.8971,0.3599 Z"/>
-    </mask>
-    <mask id="brush3" maskContentUnits="objectBoundingBox">
-      <path fill="#fff" d="M0.8698,0.5000 Q0.8698,0.5000 0.8445,0.5344 Q0.8192,0.5689 0.8200,0.6082 Q0.8209,0.6476 0.8425,0.7151 Q0.8641,0.7826 0.8069,0.7997 Q0.7496,0.8168 0.7061,0.8461 Q0.6625,0.8754 0.6109,0.9021 Q0.5594,0.9288 0.4993,0.9336 Q0.4392,0.9384 0.3802,0.9257 Q0.3213,0.9129 0.2935,0.8552 Q0.2657,0.7974 0.2458,0.7551 Q0.2259,0.7128 0.1951,0.6836 Q0.1642,0.6544 0.0968,0.6280 Q0.0294,0.6016 0.0234,0.5508 Q0.0175,0.5000 0.0478,0.4545 Q0.0780,0.4089 0.1037,0.3692 Q0.1294,0.3296 0.1261,0.2684 Q0.1228,0.2072 0.1843,0.1923 Q0.2458,0.1774 0.2925,0.1530 Q0.3392,0.1285 0.3975,0.1547 Q0.4558,0.1808 0.4956,0.2125 Q0.5354,0.2443 0.5974,0.1880 Q0.6594,0.1318 0.7088,0.1521 Q0.7582,0.1723 0.8177,0.1898 Q0.8772,0.2072 0.9118,0.2510 Q0.9463,0.2948 0.9160,0.3558 Z"/>
-    </mask>
-    <mask id="cardTorn1" maskContentUnits="objectBoundingBox">
-      <path fill="#fff" d="M0.0000,0.0000 L0.1667,0.0054 L0.3333,0.0382 L0.5000,0.0000 L0.6667,0.0007 L0.8333,0.0079 L1.0000,0.0000 L1.0000,0.1667 L1.0000,0.3333 L1.0000,0.5000 L0.9635,0.6667 L0.9823,0.8333 L0.9632,1.0000 L0.8333,1.0000 L0.6667,1.0000 L0.5000,0.9588 L0.3333,1.0000 L0.1667,1.0000 L0.0000,1.0000 L0.0104,0.8333 L0.0000,0.6667 L0.0000,0.5000 L0.0026,0.3333 L0.0000,0.1667 Z"/>
-    </mask>
-    <mask id="cardTorn2" maskContentUnits="objectBoundingBox">
-      <path fill="#fff" d="M0.0000,0.0043 L0.1667,0.0000 L0.3333,0.0310 L0.5000,0.0000 L0.6667,0.0009 L0.8333,0.0000 L1.0000,0.0000 L1.0000,0.1667 L0.9643,0.3333 L0.9950,0.5000 L0.9752,0.6667 L0.9865,0.8333 L1.0000,1.0000 L0.8333,0.9846 L0.6667,1.0000 L0.5000,0.9928 L0.3333,1.0000 L0.1667,0.9952 L0.0000,0.9703 L0.0000,0.8333 L0.0000,0.6667 L0.0263,0.5000 L0.0056,0.3333 L0.0000,0.1667 Z"/>
-    </mask>
-  </defs>
-</svg>
+<body class="bg-nearblack text-sand font-sans antialiased overflow-x-hidden">
 
 <!-- ================= HEADER ================= -->
 <header id="site-header" class="fixed top-0 inset-x-0 z-50">
@@ -190,7 +91,7 @@
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
-  <div id="mobile-nav" class="hidden md:hidden bg-ink/95 px-6 py-4 flex flex-col gap-4 text-sand text-sm font-medium">
+  <div id="mobile-nav" class="hidden md:hidden bg-nearblack/95 px-6 py-4 flex flex-col gap-4 text-sand text-sm font-medium">
     <a href="#format" class="hover:text-ember">The Format</a>
     <a href="#route" class="hover:text-ember">The Route</a>
     <a href="#team" class="hover:text-ember">The Team</a>
@@ -257,7 +158,7 @@
       <!-- REPLACE-IMAGE: swap this src for a real photo. A tall, dramatic
            training or race shot works best here. -->
       <img class="absolute inset-0 h-full w-full object-cover object-center grayscale-[.15] contrast-[1.08]"
-        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1200'%3E%3Crect width='900' height='1200' fill='%23151412'/%3E%3Ccircle cx='700' cy='260' r='220' fill='%23D96A3E' opacity='0.35'/%3E%3Cpath d='M0 820 C 200 760, 420 900, 620 820 S 860 740, 900 800 L900 1200 L0 1200 Z' fill='%2314201D'/%3E%3C/svg%3E"
+        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1200'%3E%3Crect width='900' height='1200' fill='%23151412'/%3E%3Ccircle cx='700' cy='260' r='220' fill='%23D96A3E' opacity='0.35'/%3E%3Cpath d='M0 820 C 200 760, 420 900, 620 820 S 860 740, 900 800 L900 1200 L0 1200 Z' fill='%23201D19'/%3E%3C/svg%3E"
         alt="REPLACE-IMAGE: team runner, to be swapped for a real photo">
 
       <div class="absolute inset-0 bg-gradient-to-r from-nearblack via-nearblack/30 lg:via-nearblack/5 to-transparent"></div>
@@ -280,79 +181,83 @@
       </div>
     </div>
   </div>
-
-  <div class="grain-overlay on-dark" aria-hidden="true"></div>
 </section>
 
 <!-- ================= FORMAT ================= -->
-<section id="format" class="relative bg-sand py-24 md:py-32">
+<section id="format" class="relative bg-nearblack py-24 md:py-32">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-4 reveal">How the format works</h2>
-    <p class="text-inksoft max-w-xl mb-14 reveal">No finish line, no fixed distance. Just attrition, on the hour, until one runner is left standing.</p>
+    <div class="flex items-center gap-3 mb-6 reveal">
+      <span class="w-8 h-px bg-ember"></span>
+      <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-ember">The format</p>
+    </div>
+    <h2 class="font-display uppercase text-sand text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-5 reveal">How it<br>works.</h2>
+    <p class="max-w-lg text-[15px] leading-7 text-ash mb-14 reveal">No finish line, no fixed distance. Just attrition, on the hour, until one runner is left standing.</p>
 
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="torn-card-a bg-white p-9 shadow-sm -rotate-1 reveal">
-        <span class="font-mono text-xs font-bold text-cyprus block mb-3">01</span>
-        <h3 class="text-lg font-bold mb-2">The yard</h3>
-        <p class="text-sm text-inksoft leading-relaxed">Every runner completes the same loop within the hour, then waits for the top of the next hour to start again. Each completed loop is called a <em class="not-italic font-semibold text-ink">yard</em>. There is no fixed finish line and no fixed distance.</p>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="border border-rule bg-panel p-9 reveal">
+        <span class="font-display text-xl text-ember block mb-3">01</span>
+        <h3 class="text-lg font-semibold text-sand mb-2">The yard</h3>
+        <p class="text-sm text-ash leading-relaxed">Every runner completes the same loop within the hour, then waits for the top of the next hour to start again. Each completed loop is called a <em class="not-italic font-semibold text-sand">yard</em>. There is no fixed finish line and no fixed distance.</p>
       </div>
-      <div class="torn-card-b bg-white p-9 shadow-sm rotate-1 reveal">
-        <span class="font-mono text-xs font-bold text-cyprus block mb-3">02</span>
-        <h3 class="text-lg font-bold mb-2">Attrition, not pace</h3>
-        <p class="text-sm text-inksoft leading-relaxed">A runner who fails to start the next yard on time, or does not complete it within the hour, is out. Everyone except the eventual winner records a DNF. That is the format, not a penalty.</p>
+      <div class="border border-rule bg-panel p-9 reveal">
+        <span class="font-display text-xl text-ember block mb-3">02</span>
+        <h3 class="text-lg font-semibold text-sand mb-2">Attrition, not pace</h3>
+        <p class="text-sm text-ash leading-relaxed">A runner who fails to start the next yard on time, or does not complete it within the hour, is out. Everyone except the eventual winner records a DNF. That is the format, not a penalty.</p>
       </div>
-      <div class="torn-card-b bg-white p-9 shadow-sm rotate-1 reveal">
-        <span class="font-mono text-xs font-bold text-cyprus block mb-3">03</span>
-        <h3 class="text-lg font-bold mb-2">Last one moving wins</h3>
-        <p class="text-sm text-inksoft leading-relaxed">The event ends when exactly one runner completes a yard that no one else finishes. That runner is the winner. The runner who stopped immediately before them is the assist, the last to fall.</p>
+      <div class="border border-rule bg-panel p-9 reveal">
+        <span class="font-display text-xl text-ember block mb-3">03</span>
+        <h3 class="text-lg font-semibold text-sand mb-2">Last one moving wins</h3>
+        <p class="text-sm text-ash leading-relaxed">The event ends when exactly one runner completes a yard that no one else finishes. That runner is the winner. The runner who stopped immediately before them is the assist, the last to fall.</p>
       </div>
-      <div class="torn-card-a bg-white p-9 shadow-sm -rotate-1 reveal">
-        <span class="font-mono text-xs font-bold text-cyprus block mb-3">04</span>
-        <h3 class="text-lg font-bold mb-2">Team scoring</h3>
-        <p class="text-sm text-inksoft leading-relaxed">At the World Team Championship, national teams are compared on how their strongest runners perform against the rest of the world, run concurrently on courses set to a comparable standard everywhere.</p>
+      <div class="border border-rule bg-panel p-9 reveal">
+        <span class="font-display text-xl text-ember block mb-3">04</span>
+        <h3 class="text-lg font-semibold text-sand mb-2">Team scoring</h3>
+        <p class="text-sm text-ash leading-relaxed">At the World Team Championship, national teams are compared on how their strongest runners perform against the rest of the world, run concurrently on courses set to a comparable standard everywhere.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ================= ROUTE ================= -->
-<section id="route" class="relative bg-sanddeep py-24 md:py-32 overflow-hidden">
+<section id="route" class="relative bg-panel py-24 md:py-32 overflow-hidden">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-14 reveal">The route</h2>
+    <div class="flex items-center gap-3 mb-6 reveal">
+      <span class="w-8 h-px bg-ember"></span>
+      <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-ember">The route</p>
+    </div>
+    <h2 class="font-display uppercase text-sand text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-14 reveal">The Avis<br>Dam loop.</h2>
 
     <div class="grid md:grid-cols-5 gap-10 items-center">
-      <div class="md:col-span-3 relative reveal">
+      <div class="md:col-span-3 relative reveal border border-rule">
         <!-- REPLACE-IMAGE: a drone shot or wide photo of Avis Dam works best here -->
-        <div class="brush-1 aspect-[4/3] w-full">
-          <img class="w-full h-full object-cover"
-            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23004741'/%3E%3Cpath d='M0 420 C 200 360, 350 460, 550 400 S 750 340, 800 400 L800 600 L0 600 Z' fill='%23063f39'/%3E%3Ccircle cx='620' cy='140' r='50' fill='%23B8862E' opacity='0.85'/%3E%3C/svg%3E"
+        <div class="aspect-[4/3] w-full">
+          <img class="w-full h-full object-cover grayscale-[.15] contrast-[1.08]"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23151412'/%3E%3Cpath d='M0 420 C 200 360, 350 460, 550 400 S 750 340, 800 400 L800 600 L0 600 Z' fill='%23201D19'/%3E%3Ccircle cx='620' cy='140' r='50' fill='%23D96A3E' opacity='0.85'/%3E%3C/svg%3E"
             alt="The Avis Dam loop">
         </div>
-        <div class="splat" style="--splat-color:#B8862E; width:70px; height:70px; top:-18px; right:8%; opacity:0.9;"></div>
-        <div class="splat" style="--splat-color:#14201D; width:26px; height:26px; bottom:12%; left:-14px; opacity:0.6;"></div>
       </div>
 
       <div class="md:col-span-2 reveal">
         <div class="grid grid-cols-2 gap-6 mb-8">
           <div>
-            <p class="font-mono text-[11px] uppercase tracking-wider text-inksoft mb-1">Loop distance</p>
-            <p class="text-lg font-bold">6.706 km</p>
+            <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-1">Loop distance</p>
+            <p class="text-lg font-semibold text-sand">6.706 km</p>
           </div>
           <div>
-            <p class="font-mono text-[11px] uppercase tracking-wider text-inksoft mb-1">Location</p>
-            <p class="text-lg font-bold">Avis Dam</p>
+            <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-1">Location</p>
+            <p class="text-lg font-semibold text-sand">Avis Dam</p>
           </div>
           <div>
-            <p class="font-mono text-[11px] uppercase tracking-wider text-inksoft mb-1">Surface</p>
-            <p class="text-lg font-bold">Gravel &amp; dirt</p>
+            <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-1">Surface</p>
+            <p class="text-lg font-semibold text-sand">Gravel &amp; dirt</p>
           </div>
           <div>
-            <p class="font-mono text-[11px] uppercase tracking-wider text-inksoft mb-1">Cutoff</p>
-            <p class="text-lg font-bold">On the hour</p>
+            <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-1">Cutoff</p>
+            <p class="text-lg font-semibold text-sand">On the hour</p>
           </div>
         </div>
         <!-- REPLACE-MAP: paste a Google Maps "Embed a map" iframe here -->
-        <div class="border border-ink/10 rounded bg-sand/60 p-6 text-sm text-inksoft">
+        <div class="border border-rule bg-nearblack p-6 text-sm text-ash">
           Map embed goes here. In Google Maps: Share &rarr; Embed a map, then paste the iframe in place of this box.
         </div>
       </div>
@@ -361,17 +266,16 @@
 </section>
 
 <!-- ================= LIVE YARDS ================= -->
-<section id="live" class="relative bg-ink text-sand py-20 md:py-28">
-  <div class="grain-overlay on-dark" aria-hidden="true"></div>
+<section id="live" class="relative bg-nearblack text-sand py-20 md:py-28">
   <div class="max-w-4xl mx-auto px-6 relative">
     <div class="flex items-center justify-between mb-2 reveal">
-      <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Live yards</h2>
-      <span id="status-pill" class="font-mono text-xs px-4 py-1.5 rounded-full bg-sand/10 text-sand/70">Not yet started</span>
+      <h2 class="font-display uppercase text-3xl md:text-4xl tracking-tight">Live yards</h2>
+      <span id="status-pill" class="font-mono text-[10px] uppercase tracking-[.16em] px-4 py-1.5 border border-ember/40 text-ember">Not yet started</span>
     </div>
-    <p class="text-sand/60 text-sm mb-10 max-w-md reveal">This section will track Namibia's team yard by yard once the championship begins. Check back on race day for live updates.</p>
-    <div class="border border-sand/15 rounded overflow-hidden reveal">
-      <div class="yard-row grid grid-cols-[72px_1fr_auto] gap-4 items-center px-6 py-4 font-mono text-sm text-sand/50">
-        <span class="font-bold">--</span>
+    <p class="text-ash text-sm mb-10 max-w-md reveal">This section will track Namibia's team yard by yard once the championship begins. Check back on race day for live updates.</p>
+    <div class="border border-rule overflow-hidden reveal">
+      <div class="yard-row grid grid-cols-[72px_1fr_auto] gap-4 items-center px-6 py-4 font-mono text-sm text-ash">
+        <span class="font-bold text-sand">--</span>
         <span>Yard data will appear here on race day</span>
         <span>&mdash;</span>
       </div>
@@ -381,7 +285,6 @@
 
 <!-- ================= TEAM ================= -->
 <section id="team" class="relative bg-nearblack py-24 md:py-32">
-  <div class="grain-overlay on-dark" aria-hidden="true"></div>
   <div class="max-w-6xl mx-auto px-6 relative">
 
     <div class="flex items-center gap-3 mb-6 reveal">
@@ -468,27 +371,27 @@
 </section>
 
 <!-- ================= SPONSORS ================= -->
-<section id="sponsors" class="relative bg-ink text-sand py-24 md:py-28">
-  <div class="grain-overlay on-dark" aria-hidden="true"></div>
+<section id="sponsors" class="relative bg-panel text-sand py-24 md:py-28">
   <div class="max-w-5xl mx-auto px-6 relative">
-    <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-14 reveal">Supported by</h2>
+    <div class="flex items-center gap-3 mb-6 reveal">
+      <span class="w-8 h-px bg-ember"></span>
+      <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-ember">Supported by</p>
+    </div>
+    <h2 class="font-display uppercase text-sand text-3xl md:text-4xl tracking-tight mb-14 reveal">Our partners.</h2>
 
-    <p class="font-mono text-[11px] uppercase tracking-wider text-sand/50 mb-5 reveal">Principal partner</p>
+    <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-5 reveal">Principal partner</p>
     <div class="mb-16 reveal">
-      <div class="relative inline-block">
-        <div class="brush-1 w-64 h-40 bg-sand/10 flex items-center justify-center">
-          <span class="font-mono text-xs tracking-widest text-sand/50">LOGO</span>
-        </div>
-        <div class="splat" style="--splat-color:#B8862E; width:30px; height:30px; top:-10px; left:-10px; opacity:0.5;"></div>
+      <div class="w-64 h-40 border border-rule bg-nearblack flex items-center justify-center">
+        <span class="font-mono text-xs tracking-widest text-ash">LOGO</span>
       </div>
     </div>
 
-    <p class="font-mono text-[11px] uppercase tracking-wider text-sand/50 mb-5 reveal">Supporting partners</p>
+    <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-5 reveal">Supporting partners</p>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
-      <div class="sponsor-tile h-24 border border-sand/15 rounded flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-sand/50">LOGO</span></div>
-      <div class="sponsor-tile h-24 border border-sand/15 rounded flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-sand/50">LOGO</span></div>
-      <div class="sponsor-tile h-24 border border-sand/15 rounded flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-sand/50">LOGO</span></div>
-      <div class="sponsor-tile h-24 border border-sand/15 rounded flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-sand/50">LOGO</span></div>
+      <div class="sponsor-tile h-24 border border-rule bg-nearblack flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-ash">LOGO</span></div>
+      <div class="sponsor-tile h-24 border border-rule bg-nearblack flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-ash">LOGO</span></div>
+      <div class="sponsor-tile h-24 border border-rule bg-nearblack flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-ash">LOGO</span></div>
+      <div class="sponsor-tile h-24 border border-rule bg-nearblack flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-ash">LOGO</span></div>
     </div>
   </div>
 </section>
@@ -500,7 +403,7 @@
       <h2 class="text-xl md:text-2xl font-bold mb-2">Follow the full Namibia Backyard Ultra Index</h2>
       <p class="text-sand/60 text-sm">Rankings, past editions, and every runner's yard history.</p>
     </div>
-    <a href="https://gravel.trailrunna.com/backyard" class="reveal inline-flex items-center gap-2 bg-sand text-ink font-semibold px-7 py-3.5 rounded-lg hover:bg-white transition-colors self-start md:self-auto">
+    <a href="https://gravel.trailrunna.com/backyard" class="reveal inline-flex items-center gap-2 bg-ember text-nearblack font-semibold px-7 py-3.5 hover:bg-sand transition-colors self-start md:self-auto">
       Enter the index
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
