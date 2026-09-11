@@ -242,46 +242,32 @@
       <span class="w-8 h-px bg-ember"></span>
       <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-ember">The route</p>
     </div>
-    <h2 class="font-display uppercase text-sand text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-14 reveal">The Avis<br>Dam loop.</h2>
+    <h2 class="font-display uppercase text-sand text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-10 reveal">The<br>Loops.</h2>
 
-    <div class="grid md:grid-cols-5 gap-10 items-center">
-      <div class="md:col-span-3 relative reveal border border-rule">
-        <!-- REPLACE-IMAGE: a drone shot or wide photo of Avis Dam works best here -->
-        <div class="aspect-[4/3] w-full">
-          <img class="w-full h-full object-cover grayscale-[.15] contrast-[1.08]"
-            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23151412'/%3E%3Cpath d='M0 420 C 200 360, 350 460, 550 400 S 750 340, 800 400 L800 600 L0 600 Z' fill='%23201D19'/%3E%3Ccircle cx='620' cy='140' r='50' fill='%23D96A3E' opacity='0.85'/%3E%3C/svg%3E"
-            alt="The Avis Dam loop">
-        </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-10 reveal">
+      <div>
+        <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-1">Loop distance</p>
+        <p class="text-lg font-semibold text-sand">6.706 km</p>
       </div>
-
-      <div class="md:col-span-2 reveal">
-        <div class="grid grid-cols-2 gap-6 mb-8">
-          <div>
-            <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-1">Loop distance</p>
-            <p class="text-lg font-semibold text-sand">6.706 km</p>
-          </div>
-          <div>
-            <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-1">Location</p>
-            <p class="text-lg font-semibold text-sand">Avis Dam</p>
-          </div>
-          <div>
-            <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-1">Surface</p>
-            <p class="text-lg font-semibold text-sand">Gravel &amp; dirt</p>
-          </div>
-          <div>
-            <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-1">Cutoff</p>
-            <p class="text-lg font-semibold text-sand">On the hour</p>
-          </div>
-        </div>
-        <!-- REPLACE-MAP: paste a Google Maps "Embed a map" iframe here -->
-        <div class="border border-rule bg-panel p-6 text-sm text-ash">
-          Map embed goes here. In Google Maps: Share &rarr; Embed a map, then paste the iframe in place of this box.
-        </div>
+      <div>
+        <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-1">Location</p>
+        <p class="text-lg font-semibold text-sand">Avis Dam</p>
+      </div>
+      <div>
+        <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-1">Surface</p>
+        <p class="text-lg font-semibold text-sand">Gravel &amp; dirt</p>
+      </div>
+      <div>
+        <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-1">Cutoff</p>
+        <p class="text-lg font-semibold text-sand">On the hour</p>
       </div>
     </div>
+    <!-- REPLACE-MAP: paste a Google Maps "Embed a map" iframe here -->
+    <div class="border border-rule bg-panel p-6 text-sm text-ash reveal mb-16">
+      Map embed goes here. In Google Maps: Share &rarr; Embed a map, then paste the iframe in place of this box.
+    </div>
 
-    <h3 class="font-display uppercase text-sand text-2xl tracking-tight mb-2 mt-20 reveal">Day &amp; night loops.</h3>
-    <p class="text-ash text-sm mb-10 max-w-lg reveal">Two courses, drawn from GPS track: a longer day route and a shorter, flatter loop for the night hours.</p>
+    <h3 class="font-display uppercase text-sand text-2xl tracking-tight mb-10 reveal">Day &amp; night loops.</h3>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="border border-rule bg-panel p-6 reveal ">
         <div class="flex items-center justify-between mb-4">
@@ -291,12 +277,12 @@
         <svg viewBox="0 0 600 600" class="w-full h-auto" role="img" aria-label="Day loop route shape, from GPS track, not to scale">
           <defs>
             <radialGradient id="glow-day" cx="50%" cy="45%" r="60%">
-              <stop offset="0%" stop-color="#3a332b" stop-opacity="0.9"/>
-              <stop offset="55%" stop-color="#2b2620" stop-opacity="0.35"/>
+              <stop offset="0%" stop-color="#4a4137" stop-opacity="0.98"/>
+              <stop offset="55%" stop-color="#332d25" stop-opacity="0.55"/>
               <stop offset="100%" stop-color="#2b2620" stop-opacity="0"/>
             </radialGradient>
             <pattern id="grid-day" width="50" height="50" patternUnits="userSpaceOnUse">
-              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#F0EDE4" stroke-width="1" opacity="0.05"/>
+              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#F0EDE4" stroke-width="1" opacity="0.1"/>
             </pattern>
           </defs>
           <rect x="0" y="0" width="600" height="600" fill="url(#grid-day)"/>
@@ -323,12 +309,12 @@
         <svg viewBox="0 0 600 600" class="w-full h-auto" role="img" aria-label="Night loop route shape, from GPS track, not to scale">
           <defs>
             <radialGradient id="glow-night" cx="50%" cy="45%" r="60%">
-              <stop offset="0%" stop-color="#3a332b" stop-opacity="0.9"/>
-              <stop offset="55%" stop-color="#2b2620" stop-opacity="0.35"/>
+              <stop offset="0%" stop-color="#4a4137" stop-opacity="0.98"/>
+              <stop offset="55%" stop-color="#332d25" stop-opacity="0.55"/>
               <stop offset="100%" stop-color="#2b2620" stop-opacity="0"/>
             </radialGradient>
             <pattern id="grid-night" width="50" height="50" patternUnits="userSpaceOnUse">
-              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#F0EDE4" stroke-width="1" opacity="0.05"/>
+              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#F0EDE4" stroke-width="1" opacity="0.1"/>
             </pattern>
           </defs>
           <rect x="0" y="0" width="600" height="600" fill="url(#grid-night)"/>
