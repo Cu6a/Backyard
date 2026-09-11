@@ -84,6 +84,7 @@
       <a href="#format" class="hover:text-ember transition-colors">The Format</a>
       <a href="#route" class="hover:text-ember transition-colors">The Route</a>
       <a href="#team" class="hover:text-ember transition-colors">The Team</a>
+      <a href="#organizer" class="hover:text-ember transition-colors">Organizer</a>
       <a href="#sponsors" class="hover:text-ember transition-colors">Sponsors</a>
       <a href="https://gravel.trailrunna.com/backyard" class="bg-ember text-nearblack px-4 py-2 font-semibold hover:bg-sand transition-colors">Full Index</a>
     </nav>
@@ -95,6 +96,7 @@
     <a href="#format" class="hover:text-ember">The Format</a>
     <a href="#route" class="hover:text-ember">The Route</a>
     <a href="#team" class="hover:text-ember">The Team</a>
+    <a href="#organizer" class="hover:text-ember">Organizer</a>
     <a href="#sponsors" class="hover:text-ember">Sponsors</a>
     <a href="https://gravel.trailrunna.com/backyard" class="text-ember">Full Index &rarr;</a>
   </div>
@@ -147,7 +149,7 @@
           <p class="text-[9px] uppercase tracking-[.16em] text-ash mt-1">Cutoff, every lap</p>
         </div>
         <div>
-          <p class="font-display text-3xl text-sand">12</p>
+          <p class="font-display text-3xl text-sand">15</p>
           <p class="text-[9px] uppercase tracking-[.16em] text-ash mt-1">Team athletes</p>
         </div>
       </div>
@@ -156,10 +158,25 @@
     <!-- right: photo panel, flex-1 (the remaining ~46%) -->
     <div class="relative min-h-[420px] flex-1 overflow-hidden">
       <!-- REPLACE-IMAGE: swap this src for a real photo. A tall, dramatic
-           training or race shot works best here. -->
-      <img class="absolute inset-0 h-full w-full object-cover object-center grayscale-[.15] contrast-[1.08]"
+           training or race shot works best here. Also used as the video
+           poster below, so it stays as a graceful fallback either way. -->
+      <img id="hero-poster" class="absolute inset-0 h-full w-full object-cover object-center grayscale-[.15] contrast-[1.08]"
         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1200'%3E%3Crect width='900' height='1200' fill='%23151412'/%3E%3Ccircle cx='700' cy='260' r='220' fill='%23D96A3E' opacity='0.35'/%3E%3Cpath d='M0 820 C 200 760, 420 900, 620 820 S 860 740, 900 800 L900 1200 L0 1200 Z' fill='%23201D19'/%3E%3C/svg%3E"
         alt="REPLACE-IMAGE: team runner, to be swapped for a real photo">
+
+      <!-- REPLACE-VIDEO: a short drone flyover of the loop works well here.
+           Uncomment the <source> line below and point it at your video file
+           (mp4, ideally under ~15MB, 15-25s, looped). The play button below
+           is already live as a placeholder; until a real source is added,
+           clicking it simply does nothing, so the page never looks broken. -->
+      <video id="hero-video" class="absolute inset-0 h-full w-full object-cover object-center grayscale-[.15] contrast-[1.08] hidden" muted loop playsinline preload="none" poster="">
+        <!-- <source src="media/loop-flyover.mp4" type="video/mp4"> -->
+      </video>
+      <button id="hero-video-toggle" class="absolute inset-0 z-10 flex items-center justify-center group" aria-label="Play loop flyover video">
+        <span class="w-16 h-16 rounded-full bg-nearblack/60 border border-sand/50 flex items-center justify-center group-hover:border-ember group-hover:bg-nearblack/80 transition-colors">
+          <svg id="hero-video-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-sand ml-1"><polygon points="6 4 20 12 6 20"/></svg>
+        </span>
+      </button>
 
       <div class="absolute inset-0 bg-gradient-to-r from-nearblack via-nearblack/30 lg:via-nearblack/5 to-transparent"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-nearblack/90 via-transparent to-nearblack/10"></div>
@@ -219,7 +236,7 @@
 </section>
 
 <!-- ================= ROUTE ================= -->
-<section id="route" class="relative bg-panel py-24 md:py-32 overflow-hidden">
+<section id="route" class="relative bg-nearblack py-24 md:py-32 overflow-hidden">
   <div class="max-w-6xl mx-auto px-6">
     <div class="flex items-center gap-3 mb-6 reveal">
       <span class="w-8 h-px bg-ember"></span>
@@ -257,7 +274,7 @@
           </div>
         </div>
         <!-- REPLACE-MAP: paste a Google Maps "Embed a map" iframe here -->
-        <div class="border border-rule bg-nearblack p-6 text-sm text-ash">
+        <div class="border border-rule bg-panel p-6 text-sm text-ash">
           Map embed goes here. In Google Maps: Share &rarr; Embed a map, then paste the iframe in place of this box.
         </div>
       </div>
@@ -291,8 +308,8 @@
       <span class="w-8 h-px bg-ember"></span>
       <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-ember">The roster</p>
     </div>
-    <h2 class="font-display uppercase text-sand text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-5 reveal">Twelve for<br>Namibia.</h2>
-    <p class="max-w-lg text-[15px] leading-7 text-ash mb-14 reveal">The twelve ranked athletes selected to represent Namibia, ordered by national ranking, by their best recorded yards.</p>
+    <h2 class="font-display uppercase text-sand text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-5 reveal">Fifteen for<br>Namibia.</h2>
+    <p class="max-w-lg text-[15px] leading-7 text-ash mb-14 reveal">The fifteen ranked athletes selected to represent Namibia, ordered by national ranking, by their best recorded yards.</p>
 
     <div class="border border-rule mb-24 reveal">
       <div class="grid grid-cols-[64px_1fr_100px] bg-panel text-[10px] uppercase tracking-[.16em] text-ash px-6 py-3">
@@ -311,6 +328,10 @@
         <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">10</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-rule text-sand font-mono text-xs font-bold flex items-center justify-center">MS</span><span class="font-medium text-sand text-sm">Marietjie Steinbach</span></span><span class="text-right font-mono text-sm text-ash">15</span></div>
         <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">10</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-rule text-sand font-mono text-xs font-bold flex items-center justify-center">JD</span><span class="font-medium text-sand text-sm">Jana van Dyk</span></span><span class="text-right font-mono text-sm text-ash">15</span></div>
         <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">10</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-rule text-sand font-mono text-xs font-bold flex items-center justify-center">DO</span><span class="font-medium text-sand text-sm">Danie Opperman</span></span><span class="text-right font-mono text-sm text-ash">15</span></div>
+        <!-- TODO: 3 placeholder rows added to reach the full 15 athlete team. Replace name/initials/best yards. -->
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">13</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-dashed border-rule text-ash font-mono text-xs font-bold flex items-center justify-center">?</span><span class="font-medium text-ash text-sm italic">Add runner name</span></span><span class="text-right font-mono text-sm text-ash">&mdash;</span></div>
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">13</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-dashed border-rule text-ash font-mono text-xs font-bold flex items-center justify-center">?</span><span class="font-medium text-ash text-sm italic">Add runner name</span></span><span class="text-right font-mono text-sm text-ash">&mdash;</span></div>
+        <div class="grid grid-cols-[64px_1fr_100px] items-center px-6 py-4"><span class="font-display text-xl text-ember">13</span><span class="flex items-center gap-3"><span class="w-9 h-9 bg-panel border border-dashed border-rule text-ash font-mono text-xs font-bold flex items-center justify-center">?</span><span class="font-medium text-ash text-sm italic">Add runner name</span></span><span class="text-right font-mono text-sm text-ash">&mdash;</span></div>
       </div>
     </div>
 
@@ -370,8 +391,44 @@
   </div>
 </section>
 
+<!-- ================= ORGANIZER ================= -->
+<!-- TODO: replace the placeholder day/time/location/contact details below with the real ones for the Wednesday Social Running Crew. -->
+<section id="organizer" class="relative bg-nearblack py-24 md:py-32">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-6 reveal">
+      <span class="w-8 h-px bg-ember"></span>
+      <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-ember">Organizer</p>
+    </div>
+    <h2 class="font-display uppercase text-sand text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-5 reveal">Wednesday Social<br>Running Crew.</h2>
+    <p class="max-w-lg text-[15px] leading-7 text-ash mb-14 reveal">This event is organized by the Wednesday Social Running Crew, a casual weekly running group in Windhoek. All paces and distances welcome, no experience with backyard ultras required to come along.</p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="border border-rule bg-panel p-6 reveal">
+        <p class="text-[10px] uppercase tracking-[.16em] text-ember mb-2">When</p>
+        <p class="text-sand font-semibold">Every Wednesday</p>
+        <p class="text-ash text-sm mt-1">Add start time</p>
+      </div>
+      <div class="border border-rule bg-panel p-6 reveal">
+        <p class="text-[10px] uppercase tracking-[.16em] text-ember mb-2">Where</p>
+        <p class="text-sand font-semibold">Add meeting point</p>
+        <p class="text-ash text-sm mt-1">Windhoek</p>
+      </div>
+      <div class="border border-rule bg-panel p-6 reveal">
+        <p class="text-[10px] uppercase tracking-[.16em] text-ember mb-2">Pace &amp; distance</p>
+        <p class="text-sand font-semibold">All welcome</p>
+        <p class="text-ash text-sm mt-1">Add typical distance/pace</p>
+      </div>
+      <div class="border border-rule bg-panel p-6 reveal">
+        <p class="text-[10px] uppercase tracking-[.16em] text-ember mb-2">Join in</p>
+        <p class="text-sand font-semibold">Add contact / group link</p>
+        <p class="text-ash text-sm mt-1">WhatsApp, Instagram, etc.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= SPONSORS ================= -->
-<section id="sponsors" class="relative bg-panel text-sand py-24 md:py-28">
+<section id="sponsors" class="relative bg-nearblack text-sand py-24 md:py-28">
   <div class="max-w-5xl mx-auto px-6 relative">
     <div class="flex items-center gap-3 mb-6 reveal">
       <span class="w-8 h-px bg-ember"></span>
@@ -381,17 +438,17 @@
 
     <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-5 reveal">Principal partner</p>
     <div class="mb-16 reveal">
-      <div class="w-64 h-40 border border-rule bg-nearblack flex items-center justify-center">
+      <div class="w-64 h-40 border border-rule bg-panel flex items-center justify-center">
         <span class="font-mono text-xs tracking-widest text-ash">LOGO</span>
       </div>
     </div>
 
     <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-5 reveal">Supporting partners</p>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
-      <div class="sponsor-tile h-24 border border-rule bg-nearblack flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-ash">LOGO</span></div>
-      <div class="sponsor-tile h-24 border border-rule bg-nearblack flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-ash">LOGO</span></div>
-      <div class="sponsor-tile h-24 border border-rule bg-nearblack flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-ash">LOGO</span></div>
-      <div class="sponsor-tile h-24 border border-rule bg-nearblack flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-ash">LOGO</span></div>
+      <div class="sponsor-tile h-24 border border-rule bg-panel flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-ash">LOGO</span></div>
+      <div class="sponsor-tile h-24 border border-rule bg-panel flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-ash">LOGO</span></div>
+      <div class="sponsor-tile h-24 border border-rule bg-panel flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-ash">LOGO</span></div>
+      <div class="sponsor-tile h-24 border border-rule bg-panel flex items-center justify-center"><span class="font-mono text-xs tracking-widest text-ash">LOGO</span></div>
     </div>
   </div>
 </section>
@@ -430,6 +487,33 @@
   }
   document.addEventListener('scroll', onScroll);
   onScroll();
+
+  // Hero flyover video: the play button placeholder is always visible.
+  // It only actually plays once a real <source> is uncommented and pointed
+  // at a file (see REPLACE-VIDEO in the hero markup); until then, clicking
+  // it is a harmless no-op and the hero photo keeps showing.
+  (function () {
+    var video = document.getElementById('hero-video');
+    var poster = document.getElementById('hero-poster');
+    var toggle = document.getElementById('hero-video-toggle');
+    var icon = document.getElementById('hero-video-icon');
+    if (!video || !toggle || !icon) return;
+    var hasSource = !!video.querySelector('source[src]');
+    if (hasSource) video.poster = poster ? poster.src : '';
+
+    var playIcon = '<polygon points="6 4 20 12 6 20"/>';
+    var pauseIcon = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+
+    toggle.addEventListener('click', function () {
+      if (!hasSource) return;
+      if (video.classList.contains('hidden')) {
+        video.classList.remove('hidden');
+        poster.classList.add('hidden');
+      }
+      if (video.paused) { video.play(); icon.innerHTML = pauseIcon; }
+      else { video.pause(); icon.innerHTML = playIcon; }
+    });
+  })();
 
   // Mobile nav toggle
   var navToggle = document.getElementById('nav-toggle');
