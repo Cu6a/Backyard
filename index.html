@@ -15,9 +15,10 @@
   point your subdomain's DNS (a CNAME record) at the address Replit gives
   you. Full instructions are in README.md alongside this file.
 
-  Search this file for REPLACE-VIDEO, REPLACE-IMAGE and REPLACE-MAP to find
-  every spot that needs your own media. Everything renders with a brand
-  colour placeholder until then, so the page never looks broken.
+  Search this file for REPLACE-IMAGE to find remaining spots that still need
+  your own media (the hero flyover video and route/map placeholders have
+  already been swapped in). Everything renders with a brand colour
+  placeholder until then, so the page never looks broken.
 -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -164,13 +165,9 @@
         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1200'%3E%3Crect width='900' height='1200' fill='%23151412'/%3E%3Ccircle cx='700' cy='260' r='220' fill='%23D96A3E' opacity='0.35'/%3E%3Cpath d='M0 820 C 200 760, 420 900, 620 820 S 860 740, 900 800 L900 1200 L0 1200 Z' fill='%23201D19'/%3E%3C/svg%3E"
         alt="REPLACE-IMAGE: team runner, to be swapped for a real photo">
 
-      <!-- REPLACE-VIDEO: a short drone flyover of the loop works well here.
-           Uncomment the <source> line below and point it at your video file
-           (mp4, ideally under ~15MB, 15-25s, looped). The play button below
-           is already live as a placeholder; until a real source is added,
-           clicking it simply does nothing, so the page never looks broken. -->
+      <!-- Drone flyover of the loop, muted/looped, played on demand via the button below. -->
       <video id="hero-video" class="absolute inset-0 h-full w-full object-cover object-center grayscale-[.15] contrast-[1.08] hidden" muted loop playsinline preload="none" poster="">
-        <!-- <source src="media/loop-flyover.mp4" type="video/mp4"> -->
+        <source src="media/loop-flyover.mp4" type="video/mp4">
       </video>
       <button id="hero-video-toggle" class="absolute inset-0 z-10 flex items-center justify-center group" aria-label="Play loop flyover video">
         <span class="w-16 h-16 rounded-full bg-nearblack/60 border border-sand/50 flex items-center justify-center group-hover:border-ember group-hover:bg-nearblack/80 transition-colors">
