@@ -134,7 +134,7 @@
         </a>
         <a href="#format" class="group inline-flex items-center gap-2 min-h-9 px-4 py-2 text-sand text-sm font-medium hover:text-ember transition-colors">
           <span class="w-7 h-7 rounded-full border border-sand/40 flex items-center justify-center group-hover:border-ember">
-            <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.16 8.15c-.02-.02-.03-.03-.05-.05-.97-.97-2.33-1.53-3.77-1.53-2.98 0-5.39 2.41-5.39 5.38s2.41 5.38 5.39 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5 1.84 2.5c.02.02.03.03.05.05.98.97 2.34 1.53 3.78 1.53 2.98 0 5.39-2.41 5.39-5.38.01-2.97-2.4-5.38-5.38-5.38zM6.4 15.38c-1.87 0-3.39-1.51-3.39-3.38S4.53 8.62 6.4 8.62c.99 0 1.87.4 2.5 1.11L11.34 12 8.9 14.27c-.63.71-1.51 1.11-2.5 1.11zm12.2 0c-.99 0-1.87-.4-2.5-1.11L13.66 12l2.44-2.27c.63-.71 1.51-1.11 2.5-1.11 1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38z"/></svg>
           </span>
           The format
         </a>
@@ -165,15 +165,17 @@
         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1200'%3E%3Crect width='900' height='1200' fill='%23151412'/%3E%3Ccircle cx='700' cy='260' r='220' fill='%23D96A3E' opacity='0.35'/%3E%3Cpath d='M0 820 C 200 760, 420 900, 620 820 S 860 740, 900 800 L900 1200 L0 1200 Z' fill='%23201D19'/%3E%3C/svg%3E"
         alt="REPLACE-IMAGE: team runner, to be swapped for a real photo">
 
-      <!-- Drone flyover of the loop, muted/looped, played on demand via the button below. -->
-      <video id="hero-video" class="absolute inset-0 h-full w-full object-cover object-center grayscale-[.15] contrast-[1.08] hidden" muted loop playsinline preload="none" poster="">
+      <!-- Drone flyover of the loop: autoplays muted on load, loops 3 times, then pauses on
+           its last frame. The badge below is a decorative infinity mark (echoes "one loop,
+           every hour"), not a control. -->
+      <video id="hero-video" class="absolute inset-0 h-full w-full object-cover object-center grayscale-[.15] contrast-[1.08] hidden" muted autoplay playsinline preload="auto" poster="">
         <source src="media/loop-flyover.mp4" type="video/mp4">
       </video>
-      <button id="hero-video-toggle" class="absolute inset-0 z-10 flex items-center justify-center group" aria-label="Play loop flyover video">
-        <span class="w-16 h-16 rounded-full bg-nearblack/60 border border-sand/50 flex items-center justify-center group-hover:border-ember group-hover:bg-nearblack/80 transition-colors">
-          <svg id="hero-video-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-sand ml-1"><polygon points="6 4 20 12 6 20"/></svg>
+      <div class="absolute inset-0 z-10 flex items-center justify-center" aria-hidden="true">
+        <span class="w-16 h-16 rounded-full bg-nearblack/60 border border-sand/50 flex items-center justify-center">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" class="text-sand"><path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.16 8.15c-.02-.02-.03-.03-.05-.05-.97-.97-2.33-1.53-3.77-1.53-2.98 0-5.39 2.41-5.39 5.38s2.41 5.38 5.39 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5 1.84 2.5c.02.02.03.03.05.05.98.97 2.34 1.53 3.78 1.53 2.98 0 5.39-2.41 5.39-5.38.01-2.97-2.4-5.38-5.38-5.38zM6.4 15.38c-1.87 0-3.39-1.51-3.39-3.38S4.53 8.62 6.4 8.62c.99 0 1.87.4 2.5 1.11L11.34 12 8.9 14.27c-.63.71-1.51 1.11-2.5 1.11zm12.2 0c-.99 0-1.87-.4-2.5-1.11L13.66 12l2.44-2.27c.63-.71 1.51-1.11 2.5-1.11 1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38z"/></svg>
         </span>
-      </button>
+      </div>
 
       <div class="absolute inset-0 bg-gradient-to-r from-nearblack via-nearblack/30 lg:via-nearblack/5 to-transparent"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-nearblack/90 via-transparent to-nearblack/10"></div>
@@ -507,7 +509,6 @@
 </section>
 
 <!-- ================= ORGANIZER ================= -->
-<!-- TODO: replace the placeholder day/time/location/contact details below with the real ones for the Wednesday Social Running Crew. -->
 <section id="organizer" class="relative bg-nearblack py-24 md:py-32">
   <div class="max-w-6xl mx-auto px-6">
     <div class="flex flex-col-reverse lg:flex-row lg:items-center lg:justify-between gap-10 mb-14">
@@ -517,7 +518,7 @@
           <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-ember">Organizer</p>
         </div>
         <h2 class="font-display uppercase text-sand text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-5 reveal">Wednesday Social<br>Running Crew.</h2>
-        <p class="max-w-lg text-[15px] leading-7 text-ash reveal">This event is organized by the Wednesday Social Running Crew, a casual weekly running group in Windhoek. All paces and distances welcome, no experience with backyard ultras required to come along.</p>
+        <p class="max-w-lg text-[15px] leading-7 text-ash reveal">This event is organized by the Wednesday Social Running Crew, a casual weekly trail running group in Windhoek, who meet every Wednesday at Eagles Beer Garden parking and go for a run on the Avis Dam trails, come join us and sail the trails. (No experience with backyard ultras required to come along.)</p>
       </div>
       <img src="images/wsrc-logo.png" alt="Wednesday Social Running Crew logo" class="w-32 sm:w-40 lg:w-44 h-auto shrink-0 mx-auto lg:mx-0 reveal">
     </div>
@@ -526,22 +527,22 @@
       <div class="border border-rule bg-panel p-6 reveal">
         <p class="text-[10px] uppercase tracking-[.16em] text-ember mb-2">When</p>
         <p class="text-sand font-semibold">Every Wednesday</p>
-        <p class="text-ash text-sm mt-1">Add start time</p>
+        <p class="text-ash text-sm mt-1">Winter 17:45 &middot; Summer 18:00</p>
       </div>
       <div class="border border-rule bg-panel p-6 reveal">
         <p class="text-[10px] uppercase tracking-[.16em] text-ember mb-2">Where</p>
-        <p class="text-sand font-semibold">Add meeting point</p>
-        <p class="text-ash text-sm mt-1">Windhoek</p>
+        <p class="text-sand font-semibold">Eagles Beer Garden</p>
+        <p class="text-ash text-sm mt-1">Parking, Windhoek &middot; onto the Avis Dam trails</p>
       </div>
       <div class="border border-rule bg-panel p-6 reveal">
         <p class="text-[10px] uppercase tracking-[.16em] text-ember mb-2">Pace &amp; distance</p>
         <p class="text-sand font-semibold">All welcome</p>
-        <p class="text-ash text-sm mt-1">Add typical distance/pace</p>
+        <p class="text-ash text-sm mt-1">5&ndash;7 km &middot; &plusmn;45 min</p>
       </div>
       <div class="border border-rule bg-panel p-6 reveal">
         <p class="text-[10px] uppercase tracking-[.16em] text-ember mb-2">Join in</p>
-        <p class="text-sand font-semibold">Add contact / group link</p>
-        <p class="text-ash text-sm mt-1">WhatsApp, Instagram, etc.</p>
+        <p class="text-sand font-semibold"><a href="https://sites.google.com/view/w-s-r-c/home" target="_blank" rel="noopener" class="hover:text-ember transition-colors">WSRC website</a></p>
+        <p class="text-ash text-sm mt-1">Full details &amp; updates</p>
       </div>
     </div>
   </div>
@@ -556,14 +557,6 @@
     </div>
     <h2 class="font-display uppercase text-sand text-3xl md:text-4xl tracking-tight mb-14 reveal">Our partners.</h2>
 
-    <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-5 reveal">Principal partner</p>
-    <div class="mb-16 reveal">
-      <div class="w-64 h-40 border border-rule bg-panel flex items-center justify-center">
-        <span class="font-mono text-xs tracking-widest text-ash">LOGO</span>
-      </div>
-    </div>
-
-    <p class="font-mono text-[11px] uppercase tracking-wider text-ash mb-5 reveal">Supporting partners</p>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
       <div>
         <div class="sponsor-tile h-28 border border-rule bg-panel flex items-center justify-center p-4">
@@ -588,6 +581,30 @@
           <img src="images/sponsors/jl-biokinetics.png" alt="JL Biokinetics logo" class="max-h-full max-w-full object-contain">
         </div>
         <p class="mt-3 text-center font-mono text-[10px] uppercase tracking-wider text-ash">JL Biokinetics<br>Wellness team</p>
+      </div>
+      <div>
+        <div class="sponsor-tile h-28 border border-rule bg-panel flex items-center justify-center p-4">
+          <img src="images/sponsors/gondwana.png" alt="Gondwana Collection Namibia logo" class="max-h-full max-w-full object-contain">
+        </div>
+        <p class="mt-3 text-center font-mono text-[10px] uppercase tracking-wider text-ash">Gondwana Collection<br>Most Improved Runner prize</p>
+      </div>
+      <div>
+        <div class="sponsor-tile h-28 border border-rule bg-panel flex items-center justify-center p-4">
+          <img src="images/sponsors/nova.png" alt="Nova logo" class="max-h-full max-w-full object-contain">
+        </div>
+        <p class="mt-3 text-center font-mono text-[10px] uppercase tracking-wider text-ash">Nova<br>Media partner</p>
+      </div>
+      <div>
+        <div class="sponsor-tile h-28 border border-rule bg-panel flex items-center justify-center p-4">
+          <img src="images/sponsors/tailwind.png" alt="Tailwind Nutrition logo" class="max-h-full max-w-full object-contain">
+        </div>
+        <p class="mt-3 text-center font-mono text-[10px] uppercase tracking-wider text-ash">Tailwind Nutrition<br>Nutrition sponsor</p>
+      </div>
+      <div>
+        <div class="sponsor-tile h-28 border border-rule bg-panel flex items-center justify-center p-4">
+          <img src="images/sponsors/greenspace.png" alt="Greenspace logo" class="max-h-full max-w-full object-contain">
+        </div>
+        <p class="mt-3 text-center font-mono text-[10px] uppercase tracking-wider text-ash">Greenspace<br>Running location &amp; route partner</p>
       </div>
     </div>
   </div>
@@ -628,31 +645,35 @@
   document.addEventListener('scroll', onScroll);
   onScroll();
 
-  // Hero flyover video: the play button placeholder is always visible.
-  // It only actually plays once a real <source> is uncommented and pointed
-  // at a file (see REPLACE-VIDEO in the hero markup); until then, clicking
-  // it is a harmless no-op and the hero photo keeps showing.
+  // Hero flyover video: autoplays muted on load, loops 3 times, then pauses
+  // on its last frame. Falls back to the poster photo if there's no source
+  // or the browser blocks autoplay.
   (function () {
     var video = document.getElementById('hero-video');
     var poster = document.getElementById('hero-poster');
-    var toggle = document.getElementById('hero-video-toggle');
-    var icon = document.getElementById('hero-video-icon');
-    if (!video || !toggle || !icon) return;
+    if (!video) return;
     var hasSource = !!video.querySelector('source[src]');
-    if (hasSource) video.poster = poster ? poster.src : '';
+    if (!hasSource) return;
 
-    var playIcon = '<polygon points="6 4 20 12 6 20"/>';
-    var pauseIcon = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
-
-    toggle.addEventListener('click', function () {
-      if (!hasSource) return;
-      if (video.classList.contains('hidden')) {
-        video.classList.remove('hidden');
-        poster.classList.add('hidden');
+    var loopsRemaining = 3;
+    video.addEventListener('ended', function () {
+      loopsRemaining--;
+      if (loopsRemaining > 0) {
+        video.currentTime = 0;
+        video.play();
       }
-      if (video.paused) { video.play(); icon.innerHTML = pauseIcon; }
-      else { video.pause(); icon.innerHTML = playIcon; }
     });
+
+    var playPromise = video.play();
+    video.classList.remove('hidden');
+    if (poster) poster.classList.add('hidden');
+    if (playPromise && playPromise.catch) {
+      playPromise.catch(function () {
+        // Autoplay blocked: fall back to the static poster photo.
+        video.classList.add('hidden');
+        if (poster) poster.classList.remove('hidden');
+      });
+    }
   })();
 
   // Mobile nav toggle
