@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://backyard-ultra.trailrunna.com/sitemap.xml

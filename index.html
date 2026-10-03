@@ -12,8 +12,36 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Backyard Ultra World Team Championship &mdash; Team Namibia</title>
-<meta name="description" content="Namibia's national team at the Backyard Ultra World Team Championship. One loop, every hour, until one team is left.">
+<title>Backyard Ultra Namibia &mdash; Team Namibia &middot; World Team Championship 2026</title>
+<meta name="description" content="Team Namibia at the 2026 Backyard Ultra World Team Championship, 17 October at Avis Dam, Windhoek. Fifteen athletes, one 6.706 km loop, every hour.">
+<link rel="canonical" href="https://backyard-ultra.trailrunna.com/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#151412">
+<meta name="geo.region" content="NA">
+<meta name="geo.placename" content="Windhoek">
+
+<!-- Icons. favicon.ico carries 16/32/48; Google needs a square icon that is a
+     multiple of 48px and reachable at a stable URL. -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/icons/favicon-48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Social preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Backyard Ultra Namibia">
+<meta property="og:title" content="Backyard Ultra Namibia &mdash; Team Namibia at the 2026 World Team Championship">
+<meta property="og:description" content="Fifteen Namibian athletes, one 6.706 km loop, every hour, until one runner is left. 17 October 2026 at Avis Dam, Windhoek.">
+<meta property="og:url" content="https://backyard-ultra.trailrunna.com/">
+<meta property="og:image" content="https://backyard-ultra.trailrunna.com/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Backyard Ultra Team Namibia, World Team Championship, 17 October 2026">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Backyard Ultra Namibia &mdash; Team Namibia at the 2026 World Team Championship">
+<meta name="twitter:description" content="Fifteen Namibian athletes, one 6.706 km loop, every hour, until one runner is left. 17 October 2026 at Avis Dam, Windhoek.">
+<meta name="twitter:image" content="https://backyard-ultra.trailrunna.com/images/og-image.png">
 
 <!--
   BUILD NOTES FOR REPLIT
@@ -82,6 +110,53 @@
   /* ---------- Ticker rows ---------- */
   .yard-row { font-variant-numeric: tabular-nums; }
 </style>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": "Backyard Ultra World Team Championship 2026 — Team Namibia",
+    "description": "Namibia's national team contests the biennial Backyard Ultra World Team Championship: a 6.706 km loop run on the hour, every hour, until one runner is left.",
+    "startDate": "2026-10-17",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "sport": "Ultramarathon trail running",
+    "url": "https://backyard-ultra.trailrunna.com/",
+    "image": "https://backyard-ultra.trailrunna.com/images/og-image.png",
+    "location": {
+      "@type": "Place",
+      "name": "Avis Dam",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Windhoek",
+        "addressCountry": "NA"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Wednesday Social Running Crew",
+      "description": "A casual weekly trail running group in Windhoek."
+    },
+    "competitor": {
+      "@type": "SportsTeam",
+      "name": "Team Namibia",
+      "sport": "Backyard Ultra",
+      "numberOfAthletes": 15,
+      "memberOf": {
+        "@type": "Organization",
+        "name": "Backyard Ultra World Team Championship"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Backyard Ultra Namibia",
+    "url": "https://backyard-ultra.trailrunna.com/",
+    "inLanguage": "en"
+  }
+]
+</script>
 </head>
 
 <body class="bg-nearblack text-sand font-sans antialiased overflow-x-hidden">
@@ -127,6 +202,7 @@
       </div>
 
       <h1 class="max-w-[820px] font-display uppercase text-sand reveal" style="font-size:clamp(4.1rem,9vw,8.6rem); line-height:.87; letter-spacing:-0.035em;">
+        <span class="sr-only">Backyard Ultra World Team Championship 2026 &mdash; Team Namibia. </span>
         <span class="block">One loop.</span>
         <span class="block text-ember">Every hour.</span>
         <span class="block">Together.</span>
@@ -174,7 +250,7 @@
            poster below, so it stays as a graceful fallback either way. -->
       <img id="hero-poster" class="absolute inset-0 h-full w-full object-cover object-center grayscale-[.15] contrast-[1.08]"
         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1200'%3E%3Crect width='900' height='1200' fill='%23151412'/%3E%3Ccircle cx='700' cy='260' r='220' fill='%23D96A3E' opacity='0.35'/%3E%3Cpath d='M0 820 C 200 760, 420 900, 620 820 S 860 740, 900 800 L900 1200 L0 1200 Z' fill='%23201D19'/%3E%3C/svg%3E"
-        alt="REPLACE-IMAGE: team runner, to be swapped for a real photo">
+        alt="Team Namibia runner on the Avis Dam trails, Backyard Ultra World Team Championship">
 
       <!-- Drone flyover of the loop: autoplays muted on load, loops 3 times, then pauses on
            its last frame. The badge below is a decorative infinity mark (echoes "one loop,
