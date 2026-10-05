@@ -130,7 +130,8 @@
         "@type": "PostalAddress",
         "addressLocality": "Windhoek",
         "addressCountry": "NA"
-      }
+      },
+      "hasMap": "https://www.google.com/maps/d/viewer?mid=1s50fxEX1KqsF7Oq-kTW6UfGgyqxM-Gk"
     },
     "organizer": {
       "@type": "Organization",
@@ -413,6 +414,38 @@
         </div>
       </div>
     </div>
+
+    <!-- Event map. The Google My Maps embed ships at a fixed 640x480, so it sits in
+         an aspect-ratio box and fills the width instead. Lazy loaded: it pulls in
+         Google's map JS, which is heavy and well below the fold. -->
+    <div class="mt-20 md:mt-24">
+      <div class="flex items-center gap-3 mb-6 reveal">
+        <span class="w-8 h-px bg-ember"></span>
+        <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-ember">Event map</p>
+      </div>
+      <h3 class="font-display uppercase text-sand text-2xl md:text-3xl tracking-tight mb-5 reveal">Find it on the day.</h3>
+      <p class="max-w-[560px] text-[15px] leading-7 text-ash mb-8 reveal">
+        Day and night loops, the start and finish at Eagles Beer Garden, the event
+        village, crew parking, the medical and wellness point, and five spectator
+        points along the route. Pan and zoom here, or open it full screen in Google
+        Maps for directions on the day.
+      </p>
+      <div class="reveal border border-rule bg-panel overflow-hidden">
+        <div class="relative w-full aspect-[4/3] md:aspect-[16/9]">
+          <iframe
+            src="https://www.google.com/maps/d/embed?mid=1s50fxEX1KqsF7Oq-kTW6UfGgyqxM-Gk&amp;ehbc=2E312F&amp;noprof=1"
+            title="Backyard Ultra Team Namibia event map: start, finish, the loop and parking at Avis Dam, Windhoek"
+            class="absolute inset-0 w-full h-full" style="border:0;"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+      <a href="https://www.google.com/maps/d/viewer?mid=1s50fxEX1KqsF7Oq-kTW6UfGgyqxM-Gk" target="_blank" rel="noopener"
+         class="mt-5 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[.18em] text-ember hover:text-sand transition-colors reveal">
+        Open the map in Google Maps &rarr;
+      </a>
+    </div>
+
   </div>
 </section>
 
