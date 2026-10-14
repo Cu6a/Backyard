@@ -1068,9 +1068,9 @@
       var slug = slugByName[t.name.toLowerCase()];
       var pct = Math.max(t.yards / max * 100, 0);
       var label = out ? ('Out at yard ' + t.yards) : (t.yards ? 'Yard ' + t.yards : 'Not started');
-      return '<div class="grid grid-cols-[minmax(96px,1fr)_2fr_auto] sm:grid-cols-[180px_1fr_auto] gap-3 sm:gap-4 items-center py-1.5" title="' + esc(t.name) + ', ' + esc(label) + (t.note ? '. ' + esc(t.note) : '') + '">' +
-               '<span class="font-mono text-[11px] uppercase tracking-wider ' + (out ? 'text-ash/60' : 'text-sand') + ' truncate">' + esc(t.name) + '</span>' +
-               '<span class="relative block h-7">' +
+      return '<div class="grid grid-cols-[minmax(120px,1.6fr)_1fr_auto] sm:grid-cols-[180px_1fr_auto] gap-3 sm:gap-4 items-center py-1.5" title="' + esc(t.name) + ', ' + esc(label) + (t.note ? '. ' + esc(t.note) : '') + '">' +
+               '<span class="font-mono text-[10px] sm:text-[11px] uppercase tracking-wider ' + (out ? 'text-ash/60' : 'text-sand') + ' truncate">' + esc(t.name) + '</span>' +
+               '<span class="relative block h-7" style="margin-right:18px">' +
                  '<span class="absolute inset-y-0 left-0 my-auto h-[3px] w-full bg-rule/50"></span>' +
                  '<span class="absolute inset-y-0 left-0 my-auto h-[3px] rounded-r-[2px] ' + (out ? 'bg-rule' : 'bg-ember') + '" style="width:' + pct.toFixed(1) + '%"></span>' +
                  (slug
