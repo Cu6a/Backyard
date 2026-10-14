@@ -1056,17 +1056,20 @@
     if (!team.length) { board.hidden = true; return; }
 
     team.forEach(function (t) { if (isNaN(t.yards)) t.yards = 0; });
-    var max = Math.max.apply(null, team.map(function (t) { return t.yards; }).concat([1]));
+    // deepest is what we report; scale is only the divide-by-zero guard for bar
+    // widths, and must never reach the text or it reads "deepest yard 1" at 0.
+    var deepest = Math.max.apply(null, team.map(function (t) { return t.yards; }).concat([0]));
+    var scale = Math.max(deepest, 1);
     team.sort(function (a, b) { return b.yards - a.yards; });
 
     var running = team.filter(function (t) { return t.status.toLowerCase() !== 'out'; }).length;
     boardSub.textContent = running + ' of ' + team.length + ' still running' +
-                           (max ? ', deepest yard ' + max : '');
+                           (deepest ? ', deepest yard ' + deepest : '');
 
     boardRows.innerHTML = team.map(function (t) {
       var out = t.status.toLowerCase() === 'out';
       var slug = slugByName[t.name.toLowerCase()];
-      var pct = Math.max(t.yards / max * 100, 0);
+      var pct = Math.max(t.yards / scale * 100, 0);
       var label = out ? ('Out at yard ' + t.yards) : (t.yards ? 'Yard ' + t.yards : 'Not started');
       return '<div class="grid grid-cols-[minmax(120px,1.6fr)_1fr_auto] sm:grid-cols-[180px_1fr_auto] gap-3 sm:gap-4 items-center py-1.5" title="' + esc(t.name) + ', ' + esc(label) + (t.note ? '. ' + esc(t.note) : '') + '">' +
                '<span class="font-mono text-[10px] sm:text-[11px] uppercase tracking-wider ' + (out ? 'text-ash/60' : 'text-sand') + ' truncate">' + esc(t.name) + '</span>' +
