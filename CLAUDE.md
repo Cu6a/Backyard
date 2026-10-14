@@ -5,8 +5,40 @@ Championship, 17 October 2026 at Avis Dam, Windhoek. Organised by the Wednesday
 Social Running Crew.
 
 - Live at https://backyard-ultra.trailrunna.com
-- GitHub Pages serves `main` at root; every push to `main` rebuilds the site
-- `CNAME` holds the custom domain, so do not remove it
+
+## Hosting: NOT GitHub Pages any more
+
+**Pushing to `main` does not publish anything.** The repo is the source of
+truth; publishing is a separate manual upload. This caught us out once, so it
+is the first thing in this file.
+
+The site is served from the account's own cPanel hosting:
+
+- Document root `/home/traibyaa/backyard-ultra.trailrunna.com`
+- DNS: an A record for `backyard-ultra` to `199.188.205.217`, TTL 300, in the
+  cPanel Zone Editor for `trailrunna.com` (nameservers are
+  `dns1`/`dns2.namecheaphosting.com`, so that zone is authoritative; Namecheap's
+  Advanced DNS panel edits the same zone)
+- A dormant WordPress install is parked in `_wp-old` inside the document root.
+  It was moved there, not deleted, and should be cleaned up.
+- `CNAME` is left in the repo but no longer does anything
+
+**To publish a change:** zip the site (everything except `.git`, `CLAUDE.md`,
+`README.md`, `CNAME`, `.gitignore`), upload to the document root via cPanel
+File Manager, extract, overwrite. Nothing during an event needs this, because
+the live board reads from the Google Sheet.
+
+### Why it moved, so nobody moves it back
+
+MTC, Namibia's largest mobile network, **refuses connections to GitHub Pages'
+IP range** (`185.199.108-111.153`), returning `ERR_CONNECTION_REFUSED`.
+`github.com` itself is fine, so it is that range specifically. The site was
+unreachable for MTC mobile visitors, which is a large share of the Namibian
+audience, while loading normally on WiFi and from abroad.
+
+Diagnosis that settled it: on MTC with no VPN, `pages.github.com` fails and
+`github.com` loads. If GitHub Pages is ever reconsidered, re-run that test
+first.
 
 ## Shape of the repo
 
@@ -142,7 +174,8 @@ GA4 is `G-NHHLNH4CP9`, loaded immediately after `<head>`.
   every `src` resolves, and the tile or card count.
 - Remove a block by exact literal string, not a regex. A pattern that stops at
   the first `</div>` cuts the inner one and orphans the caption.
-- After pushing, watch the Pages build and confirm the change on the live URL.
-  Builds normally take under a minute, but Actions has stalled for hours during
-  GitHub incidents, and a queued run can end up unrecoverable and need a fresh
-  commit to supersede it.
+- After uploading, confirm the change on the live URL. Pushing to `main` is
+  not publishing; see the hosting section at the top.
+- Verifying from outside is worth the effort: it has caught a stale deploy, a
+  subtitle reading "deepest yard 1" before anyone had run a yard, and an
+  avatar overlapping its label.
