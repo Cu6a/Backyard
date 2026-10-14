@@ -88,11 +88,41 @@ that hexagon geometry; measure an existing file's alpha profile to check.
 Driven by a Google Sheet so it can be updated from a phone during the event
 with no deploy. Sheet ID is in the script at the bottom of `index.html`.
 
-First tab: `yard, time, runners_left, namibians_left, note` in A to E, status
-pill text in G2, intro line in H2. While G2 reads "Not yet started" the
-placeholder stays and no rows render. Read via the gviz CSV endpoint, which
-requires the sheet shared as anyone-with-the-link can view. A failed fetch
-leaves the current screen untouched rather than blanking the section.
+One tab holds both blocks, fetched in a single request over `A1:M500`:
+
+- **A to E**, the yard log: `yard, time, runners_left, namibians_left, note`
+- **G2** status pill text, **H2** the intro line
+- **J to M**, the team board: `runner, yards, status, note`, one row per athlete
+
+While G2 reads "Not yet started" the yard log keeps its placeholder and no log
+rows render. The team board shows whenever columns J to M hold any names, and
+hides when they do not, so it degrades to nothing rather than to an empty chart.
+
+Read via the gviz CSV endpoint, which requires the sheet shared as
+anyone-with-the-link can view. A failed fetch leaves the current screen
+untouched rather than blanking the section.
+
+## Team board avatars
+
+`images/avatars/<slug>.png` are 160px circular head crops cut from the roster
+photos, matched to sheet rows **by runner name** at runtime by reading the
+gallery already in the page, so changing the roster needs no second edit.
+
+The crop is a square taken from the roster photo as `(side, centre_x, top_y)`
+expressed as fractions of the frame. Default `(0.55, 0.50, 0.04)` suits a
+runner facing the camera near the top of frame. Four needed their own values,
+found by looking at the photo and reading off where the head sits:
+
+| Runner | side, centre x, top y | Why |
+|---|---|---|
+| `danielle-zimny` | 0.38, 0.52, 0.14 | holding a phone up across her face |
+| `tobias-verwey` | 0.60, 0.50, 0.00 | cap brim and sunglasses, sits high |
+| `jana-van-dyk` | 0.32, 0.42, 0.29 | small in frame, left of centre |
+| `buks-gous` | 0.30, 0.45, 0.24 | distant, head a third of the way down |
+
+Automatic subject detection was tried and does not work on these photos: the
+hexagon edge and the horizon line dominate any contrast or background-distance
+measure. Read the coordinates off the image by eye instead.
 
 ## SEO
 

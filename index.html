@@ -475,6 +475,23 @@
   </div>
 </section>
 
+<!-- ================= TEAM BOARD ================= -->
+<section id="board" class="relative bg-nearblack text-sand pb-20 md:pb-28" hidden>
+  <div class="max-w-4xl mx-auto px-6 relative">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="w-8 h-px bg-ember"></span>
+      <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-ember">The team, yard by yard</p>
+    </div>
+    <h3 class="font-display uppercase text-sand text-2xl md:text-3xl tracking-tight mb-3">Who is still out there.</h3>
+    <p id="board-sub" class="text-ash text-sm mb-8 max-w-md"></p>
+    <div id="board-rows" class="space-y-1"></div>
+    <div class="flex items-center gap-5 mt-6 font-mono text-[10px] uppercase tracking-[.16em] text-ash">
+      <span class="flex items-center gap-2"><span class="w-3 h-3 bg-ember inline-block"></span>Still running</span>
+      <span class="flex items-center gap-2"><span class="w-3 h-3 bg-rule inline-block"></span>Out</span>
+    </div>
+  </div>
+</section>
+
 <!-- ================= TEAM ================= -->
 <section id="team" class="relative bg-nearblack py-24 md:py-32">
   <div class="max-w-6xl mx-auto px-6 relative">
@@ -946,7 +963,7 @@
 (function () {
   var SHEET_ID = '12jtVujQA6wx8gXFfFJPSH_y5eH75d4WR7e7RUbamiSY';
   var URL = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID +
-            '/gviz/tq?tqx=out:csv&range=A1:H500';
+            '/gviz/tq?tqx=out:csv&range=A1:M500';
   var POLL_MS = 60000;
 
   var pill = document.getElementById('status-pill');
@@ -1013,10 +1030,63 @@
     updated.hidden = false;
   }
 
+  /* Team board. Columns J to M of the same sheet: runner, yards, status, note.
+     Avatars are matched to the roster by name, reading the gallery already on
+     the page, so a roster change needs no second edit here. */
+  var board = document.getElementById('board');
+  var boardRows = document.getElementById('board-rows');
+  var boardSub = document.getElementById('board-sub');
+
+  var slugByName = {};
+  document.querySelectorAll('#gallery figure').forEach(function (fig) {
+    var nameEl = fig.querySelector('.font-medium');
+    var img = fig.querySelector('img');
+    if (!nameEl || !img) return;
+    var m = img.getAttribute('src').match(/images\/([^\/]+)\.png$/);
+    if (m) slugByName[nameEl.textContent.trim().toLowerCase()] = m[1];
+  });
+
+  function renderBoard(rows) {
+    if (!board || !boardRows) return;
+    var team = rows.slice(1).map(function (r) {
+      return { name: (r[9] || '').trim(), yards: parseInt((r[10] || '').trim(), 10),
+               status: (r[11] || '').trim(), note: (r[12] || '').trim() };
+    }).filter(function (t) { return t.name !== ''; });
+
+    if (!team.length) { board.hidden = true; return; }
+
+    team.forEach(function (t) { if (isNaN(t.yards)) t.yards = 0; });
+    var max = Math.max.apply(null, team.map(function (t) { return t.yards; }).concat([1]));
+    team.sort(function (a, b) { return b.yards - a.yards; });
+
+    var running = team.filter(function (t) { return t.status.toLowerCase() !== 'out'; }).length;
+    boardSub.textContent = running + ' of ' + team.length + ' still running' +
+                           (max ? ', deepest yard ' + max : '');
+
+    boardRows.innerHTML = team.map(function (t) {
+      var out = t.status.toLowerCase() === 'out';
+      var slug = slugByName[t.name.toLowerCase()];
+      var pct = Math.max(t.yards / max * 100, 0);
+      var label = out ? ('Out at yard ' + t.yards) : (t.yards ? 'Yard ' + t.yards : 'Not started');
+      return '<div class="grid grid-cols-[minmax(96px,1fr)_2fr_auto] sm:grid-cols-[180px_1fr_auto] gap-3 sm:gap-4 items-center py-1.5" title="' + esc(t.name) + ', ' + esc(label) + (t.note ? '. ' + esc(t.note) : '') + '">' +
+               '<span class="font-mono text-[11px] uppercase tracking-wider ' + (out ? 'text-ash/60' : 'text-sand') + ' truncate">' + esc(t.name) + '</span>' +
+               '<span class="relative block h-7">' +
+                 '<span class="absolute inset-y-0 left-0 my-auto h-[3px] w-full bg-rule/50"></span>' +
+                 '<span class="absolute inset-y-0 left-0 my-auto h-[3px] rounded-r-[2px] ' + (out ? 'bg-rule' : 'bg-ember') + '" style="width:' + pct.toFixed(1) + '%"></span>' +
+                 (slug
+                   ? '<img src="images/avatars/' + slug + '.png" alt="" loading="lazy" class="absolute top-1/2 w-7 h-7 rounded-full ring-2 ' + (out ? 'ring-rule grayscale opacity-60' : 'ring-ember') + '" style="left:' + pct.toFixed(1) + '%; transform:translate(-50%,-50%)">'
+                   : '<span class="absolute top-1/2 w-3 h-3 rounded-full ' + (out ? 'bg-rule' : 'bg-ember') + '" style="left:' + pct.toFixed(1) + '%; transform:translate(-50%,-50%)"></span>') +
+               '</span>' +
+               '<span class="font-mono text-[11px] tabular-nums ' + (out ? 'text-ash/60' : 'text-sand') + ' whitespace-nowrap">' + esc(label) + '</span>' +
+             '</div>';
+    }).join('');
+    board.hidden = false;
+  }
+
   function poll() {
     fetch(URL + '&_=' + Date.now(), { cache: 'no-store' })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
-      .then(function (t) { render(parseCSV(t)); })
+      .then(function (t) { var rows = parseCSV(t); render(rows); renderBoard(rows); })
       .catch(function () { /* keep what is on screen */ });
   }
 
