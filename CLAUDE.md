@@ -134,6 +134,41 @@ Read via the gviz CSV endpoint, which requires the sheet shared as
 anyone-with-the-link can view. A failed fetch leaves the current screen
 untouched rather than blanking the section.
 
+## Stats page
+
+`stats.html` is a second page, linked from the nav, reading the **same sheet and
+the same single request** as the live yards block. Everything on it is derived
+from the yard counts in column K, so there is no second place to update during
+the event.
+
+Loop figures are hard-coded at the top of its script: `LOOP_KM = 6.706`,
+`DAY_CLIMB = 90`, `NIGHT_CLIMB = 55`. Which loop a yard uses comes from the
+clock, not a lookup table:
+
+```js
+function climbForYard(n) { var hour = (13 + n) % 24; return (hour >= 6 && hour < 18) ? 90 : 55; }
+```
+
+Yard n starts at 14:00 plus n-1 hours, and the day loop runs 06:00 to 18:00, so
+that yields four day loops, then yards 5 to 16 night, then 17 to 28 day, and so
+on. One runner over 24 yards is 160.9 km and 1 740 m, which is the figure on the
+static card at the bottom. Change the start time and that formula changes.
+
+The comparison panels pick the largest landmark the total has already passed
+plus the next one up. Fifteen runners add up fast, so both ladders carry rungs
+well past the obvious ones (Earth's circumference, the Karman line); without
+them the page sits on "Everest 3.4 times over" for most of a long race. Below
+the smallest landmark only the share is shown, because the "short of" line would
+otherwise name the same landmark twice. At zero it says so rather than printing
+`0%`.
+
+Sitemap carries both URLs. Verify the logic by intercepting `**/gviz/**` with
+Playwright and reading the counters out of the DOM; ignore the layout, since
+Tailwind is proxy-blocked in the sandbox and `tailwind is not defined` is the
+expected and only console error there. Chromium needs an explicit
+`executable_path="/opt/pw-browsers/chromium-1194/chrome-linux/chrome"` because
+the bundled Playwright expects a newer build than the one installed.
+
 ## Team board avatars
 
 `images/avatars/<slug>.png` are 160px circular head crops cut from the roster
